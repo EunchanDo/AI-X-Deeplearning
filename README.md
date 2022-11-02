@@ -1,5 +1,4 @@
 # AI-X-Deeplearning
-**#AI-X Deeplearning final project**
 
 **Title**: 다양한 머신러닝 기법을 활용한 심장병 발병 예측
 
