@@ -40,7 +40,8 @@
   <br> 16. Asthma: 천식 발병 여부, 불리언 자료형(Yes or No)
   <br> 17. KidneyDisease: 신장 결석, 방광염, 요실금을 제외한 신장 질환 발병 여부, 불리언 자료형(Yes or No)
   <br> 18. SkinCancer: 피부암 발병 여부, 불리언 자료형(Yes or No)
-  <br>  
+  <br>
+  
 **Ⅲ. Methodology**
 
   - Explaining your choice of algorithms
