@@ -18,6 +18,8 @@ Members: 도은찬, 서울 기계공학부, dec1995@hanyang.ac.kr
   - https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋 출처)
   
   - Describing dataset
+  - ![캡처](https://user-images.githubusercontent.com/116618556/199430090-c79d4e11-4c19-412b-8a2d-16b8d37b1eba.JPG)
+
   
 Ⅲ. Methodology
 
