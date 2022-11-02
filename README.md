@@ -8,9 +8,9 @@ Members: 도은찬, 서울 기계공학부, dec1995@hanyang.ac.kr
          정다연, 서울 기계공학부, jdd2635@hanyang.ac.kr
          
 Ⅰ. Proposal(Option A)
-https://gist.github.com/EunchanDo/93255909d6d7d84ec1b7b3ba2d836ea6
+
   - Motivation: 
-  
+ script src="https://gist.github.com/EunchanDo/93255909d6d7d84ec1b7b3ba2d836ea6.js
   - What do you want to see at the end?
   
 Ⅱ. Datasets
