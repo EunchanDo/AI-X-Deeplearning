@@ -30,5 +30,6 @@
   
 **Ⅴ. Related Work**
    <br>> http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002 (심장질환 예방)
-   
+   <br>> https://www.nhis.or.kr/magazin/mobile/201411/sub02_02.html
+   <br>> https://www.korea.kr/news/healthView.do?newsId=148896724
 **Ⅵ. Conclusion: Discussion**
