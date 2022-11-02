@@ -14,7 +14,7 @@
   
 **Ⅱ. Datasets**
 
-  - >https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋 출처)
+  - https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋 출처)
   - Describing dataset
     
 **Ⅲ. Methodology**
