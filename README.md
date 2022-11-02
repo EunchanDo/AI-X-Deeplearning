@@ -1,11 +1,11 @@
 # AI-X-Deeplearning
 
-AI-X Deeplearning final project
+##AI-X Deeplearning final project
 
-Title: 다양한 머신러닝 기법을 활용한 심장병 발병 예측
+**Title**: 다양한 머신러닝 기법을 활용한 심장병 발병 예측
 
-Members: 도은찬, 서울 기계공학부, dec1995@hanyang.ac.kr
-         정다연, 서울 기계공학부, jdd2635@hanyang.ac.kr
+**Members**: 도은찬, 서울 기계공학부, dec1995@hanyang.ac.kr
+             정다연, 서울 기계공학부, jdd2635@hanyang.ac.kr
          
 Ⅰ. Proposal(Option A)
 
