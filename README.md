@@ -28,7 +28,6 @@
   - Graphs, tables, any statistics
   
 **Ⅴ. Related Work**
-
-   <br>> http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002
+   <br>> http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002 (심장질환 예방)
    
 **Ⅵ. Conclusion: Discussion**
