@@ -1,4 +1,5 @@
 # AI-X-Deeplearning
+**#AI-X Deeplearning final project**
 
 **Title**: 다양한 머신러닝 기법을 활용한 심장병 발병 예측
 
@@ -26,9 +27,9 @@
   <br> 3. Smoking: 흡연 여부, 일생동안 100개비 이상 흡연하였으면 Yes에 해당, 불리언 자료형(Yes or No)
   <br> 4. AlcholDrinking: 음주 여부, 남성의 경우 일주일에 14병 이상의 음주, 여성의 경우 일주일에 7병 이상의 음주 시 Yes에 해당, 불리언 자료형(Yes or No)
   <br> 5. Stroke: 뇌졸중 발병 여부, 불리언 자료형(Yes or No)
-  <br> 6. PhysicalHealth: 한 달(30일) 중 신체적으로 아픈 날의 수, 정수형 자료형
-  <br> 7. MentalHealth: 지난 한 달(30일) 중 정신적으로 안 좋은(슬픔 혹은 우울 등) 날의 수, 벙수형 자료형
-  <br> 8. DiffWalking: 걷거나 계단을 오르내리는 데에 어려움이 있는지 여부, 불리언 자료형(Yes or No)
+  <br> 6. PhysicalHealth: 한 달(30일) 중 신체적으로 아프거나 다친 날이 얼마인가요?, 정수형 자료형
+  <br> 7. MentalHealth: 지난 한 달(30일) 중 정신적으로 안 좋은 날이 얼마인가요?, 벙수형 자료형
+  <br> 8. DiffWalking: 걷거나 계단을 오르내리는 데에 어려움이 있나요?, 불리언 자료형(Yes or No)
   <br> 9. Sex: 성별, 문자형 자료형(Male, Female)
   <br> 10. AgeCategory: 연령 범주를 14개로 카테고리화, 문자형 자료형(10-74, 65-69, 60-64 등)
   <br> 11. Race: 인종, 문자형 자료형(White, Hispanic, Balck 등)
@@ -55,5 +56,5 @@
    <br>> https://www.nhis.or.kr/magazin/mobile/201411/sub02_02.html
    <br>> https://www.korea.kr/news/healthView.do?newsId=148896724
    <br>> https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋)
-
-<br>**Ⅵ. Conclusion: Discussion**
+   <br>> https://computer-science-student.tistory.com/113
+**Ⅵ. Conclusion: Discussion**
