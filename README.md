@@ -58,5 +58,6 @@
    <br>> https://www.korea.kr/news/healthView.do?newsId=148896724
    <br>> https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋)
    <br>> https://computer-science-student.tistory.com/113
+   <br>> https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic
    
 **Ⅵ. Conclusion: Discussion**
