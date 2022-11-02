@@ -19,10 +19,28 @@
   
   - Describing dataset
   <br> ![캡처](https://user-images.githubusercontent.com/116618556/199441411-adf3fa21-bd9d-46f7-aa4d-a78fad62c8e8.JPG)
-
+  <br> 본 데이터셋은 미국 질병통제예방센터(CDC)가 2020년에 분석한 성인 40만명의 건강 지표로 이루어져 있다. 총 18개의 변수(9개의 불리언, 5개의 )로 이루어져 있으며, 각 feature별 자세한 내용은 하기와 같다.
+  <br> 1. HeartDisease: 
+  <br> 2. BMI: 
+  <br> 3. Smoking:
+  <br> 4. AlcholDrinking:
+  <br> 5. Stroke:
+  <br> 6. PhysicalHealth: 
+  <br> 7. MentalHealth:
+  <br> 8. DiffWalking:
+  <br> 9. Sex:
+  <br> 10. AgeCategory:
+  <br> 11. Race: 
+  <br> 12. Diabetic:
+  <br> 13. PhysicalActivity:
+  <br> 14. GenHealth:
+  <br> 15. SleepTime:
+  <br> 16. Asthma:
+  <br> 17. KidneyDisease:
+  <br> 18. SkinCancer: 
   
-
-    
+  
+  
 **Ⅲ. Methodology**
 
   - Explaining your choice of algorithms
@@ -37,4 +55,5 @@
    <br>> http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002 (심장질환 예방)
    <br>> https://www.nhis.or.kr/magazin/mobile/201411/sub02_02.html
    <br>> https://www.korea.kr/news/healthView.do?newsId=148896724
+   <br>> https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋)
 **Ⅵ. Conclusion: Discussion**
