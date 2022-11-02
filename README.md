@@ -18,7 +18,8 @@
   - https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋 출처)
   
   - Describing dataset
-  <br> ![캡처](https://user-images.githubusercontent.com/116618556/199440198-138bd8d0-d1c0-4009-8331-b54ad25b5d8b.JPG
+  <br> ![캡처](https://user-images.githubusercontent.com/116618556/199441411-adf3fa21-bd9d-46f7-aa4d-a78fad62c8e8.JPG)
+
   
 
     
