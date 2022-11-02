@@ -18,10 +18,10 @@ Members: 도은찬, 서울 기계공학부, dec1995@hanyang.ac.kr
   - https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋 출처)
   - Describing dataset
   
-  '''
+  ```
   import numpy as np
   import pandas as pd
-  '''
+  ```
 
   
 Ⅲ. Methodology
