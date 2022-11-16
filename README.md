@@ -47,7 +47,7 @@
   <br> SVM, logistic regression, random forest ...
   - Explaining features
   <br> 
-```
+```python
 df = pd.read_csv('/content/drive/MyDrive/AIX_deeplearning data/heart_2020_cleaned.csv')
 df.head()
 ```
