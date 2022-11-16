@@ -48,11 +48,50 @@
   - Explaining your choice of algorithms
   <br> SVM, logistic regression, random forest ...
   - Explaining features
-  
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import missingno as msno
+```
 ```python
 df = pd.read_csv('/content/drive/MyDrive/AIX_deeplearning data/heart_2020_cleaned.csv')
 df.head()
 ```
+|index|HeartDisease|BMI|Smoking|AlcoholDrinking|Stroke|PhysicalHealth|MentalHealth|DiffWalking|Sex|AgeCategory|Race|Diabetic|PhysicalActivity|GenHealth|SleepTime|Asthma|KidneyDisease|SkinCancer|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|0|No|16\.6|Yes|No|No|3\.0|30\.0|No|Female|55-59|White|Yes|Yes|Very good|5\.0|Yes|No|Yes|
+|1|No|20\.34|No|No|Yes|0\.0|0\.0|No|Female|80 or older|White|No|Yes|Very good|7\.0|No|No|No|
+|2|No|26\.58|Yes|No|No|20\.0|30\.0|No|Male|65-69|White|Yes|Yes|Fair|8\.0|Yes|No|No|
+|3|No|24\.21|No|No|No|0\.0|0\.0|No|Female|75-79|White|No|No|Good|6\.0|No|No|Yes|
+|4|No|23\.71|No|No|No|28\.0|0\.0|Yes|Female|40-44|White|No|Yes|Very good|8\.0|No|No|No|
+
+
+
+```
+df.info()
+```
+
+```
+f, ax = plt.subplots(1,2,figsize=(18,8))
+df['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
+                                             autopct='%1.1f%%', ax=ax[0],shadow=True)
+
+ax[0].set_title('PiePlot - HeartDisease', fontsize=20)
+ax[0].set_ylabel('')
+
+sns.countplot('HeartDisease', data=df, ax=ax[1])
+ax[1].set_title('CountPlot - HeartDisease', fontsize=20)
+ax[1].set_xlabel('HeartDisease', fontsize=16)
+ax[1].set_ylabel('Count', fontsize=16)
+plt.show()
+```
+
+
+
+
 
 # **Ⅳ. Evaluation & Analysis**
   
