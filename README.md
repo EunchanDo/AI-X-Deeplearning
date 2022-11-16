@@ -1,10 +1,12 @@
 # AI-X-Deeplearning
 
-**Title**: 다양한 머신러닝 기법을 활용한 심장병 발병 예측
+# **Title**: 다양한 머신러닝 기법을 활용한 심장병 발병 예측
 
-**Members**: <br>도은찬, 서울 기계공학부, dec1995@hanyang.ac.kr  <br>정다연, 서울 기계공학부, jdd2635@hanyang.ac.kr
+# **Members**:
+<br>도은찬, 서울 기계공학부, dec1995@hanyang.ac.kr
+<br>정다연, 서울 기계공학부, jdd2635@hanyang.ac.kr
          
-**Ⅰ. Proposal(Option A)**
+# **Ⅰ. Proposal(Option A)**
 
   - Motivation:
   <br> 심장질환은 국내 사망원인 1위 질환인 암 다음으로 우리의 목숨을 위협하는 가장 무서운 질병이다. 이는 돌연사의 원인이 되기도 하며 고령 환자의 주요 사망 원인이다. 국내에서는 매년 20만명이 넘는 환자들이 심부전으로 병원을 찾는다. 우리나라 뿐만 아니라 다른 여러 국가에서도 사망 원인이 되는 심각한 질환이고 특히 미국 내에서는 전 인종이 영향을 받은 주된 사망원인 중 하나이다. 미국 CDC의 통계자료에 따르면 미국인들의 절반이 심장병의 세 가지 주요 원인인 고혈압, 고 콜레스테롤, 흡연 중 적어도 한가지를 가지고 있다고 한다. 이 외에도 심장질환을 발병시킬 수 있는 요인에는 육체 및 정신의 건강한 정도, 뇌졸중 경험 여부 그리고 음주 등이 있다. 따라서 이러한 원인들을 분석하여 심장병 발생 여부를 예측하는 것은 인류의 중대한 과업이라고 할 수 있다. 그러한 과업에 동참하기위해 우리 팀은 미국 CDC의 방대한 심장 질환 지표 데이터를 활용하여 그것을 예측할 수 있는 모델을 만들고 어떤 모델이 최적의 결과를 제시할 수 있는지 분석할 것이다. 
@@ -12,7 +14,7 @@
   - What do you want to see at the end?
   <br> 심장 질환은 예방 가능성이 높은 질환이다. 위에서 언급한 것처럼 주로 흡연, 운동 부족, 비만 등이 주요 원인이며, 이를 약물치료나 생활 습관의 교정함으로서 심장질환 발병을 예방할 수 있다. 따라서 환자의 성별, 나이, BMI 지수, 흡연 여부 등을 특징인자로 하는 머신러닝 기법들을 적용하여 심장질환 발생 가능성을 예측하고 사망률이 높은 질병 중 하나인 심장질환을 예측하고 이러한 환자들에게 약물치료, 생활 습관 교정 등의 예방법을 제시하여 심장질환으로 인한 사망률을 낮출 수 있는 모델을 제시하고자 한다.
   
-**Ⅱ. Datasets**
+# **Ⅱ. Datasets**
 
   - https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋 출처)
   
@@ -41,7 +43,7 @@
   <br> 18. SkinCancer: 피부암 발병 여부, 불리언 자료형(Yes or No)
   <br>
   
-**Ⅲ. Methodology**
+# **Ⅲ. Methodology**
 
   - Explaining your choice of algorithms
   <br> SVM, logistic regression, random forest ...
@@ -52,7 +54,7 @@ df = pd.read_csv('/content/drive/MyDrive/AIX_deeplearning data/heart_2020_cleane
 df.head()
 ```
 
-**Ⅳ. Evaluation & Analysis**
+# **Ⅳ. Evaluation & Analysis**
   
   ```python
   # Import libraries
@@ -79,7 +81,7 @@ df.head()
 |3|No|24\.21|No|No|No|0\.0|0\.0|No|Female|75-79|White|No|No|Good|6\.0|No|No|Yes|
 |4|No|23\.71|No|No|No|28\.0|0\.0|Yes|Female|40-44|White|No|Yes|Very good|8\.0|No|No|No|
 
-**Feature Engineering**
+**- Feature Engineering**
 
   ```python
   # Extract String feature
@@ -94,8 +96,32 @@ df.head()
 |3|24\.21|0\.0|0\.0|6\.0|
 |4|23\.71|28\.0|0\.0|8\.0|
 
+  ```python
+  # Extract Boolean feature & switch it to string factor
+  df_diabetic = df[['Diabetic']].replace({'Yes (during pregnancy)' : 1, 'No, borderline diabetes' : 0})
+  df_bool_1 = df[['HeartDisease', 'Smoking', 'AlcoholDrinking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer']]
+  df_bool = pd.concat([df_bool_1, df_diabetic], axis=1)
+  df_bool = df_bool.replace({'No':0, 'Yes':1})
+  df_bool.head()
+  ```
+    
+  |index|HeartDisease|Smoking|AlcoholDrinking|Stroke|DiffWalking|PhysicalActivity|Asthma|KidneyDisease|SkinCancer|Diabetic|
+|---|---|---|---|---|---|---|---|---|---|---|
+|0|0|1|0|0|0|1|1|0|1|1|
+|1|0|0|0|1|0|1|0|0|0|0|
+|2|0|1|0|0|0|1|1|0|0|1|
+|3|0|0|0|0|0|0|0|0|1|0|
+|4|0|0|0|0|1|1|0|0|0|0|
 
+  ```python
+  df_sex = df[['Sex']].replace({'Female':0, 'Male':1})
+df_agecategory = df[['AgeCategory']].replace({'18-24':0, '25-29':1, '30-34':2, '35-39':3, '40-44':4, '45-49':5, '50-54':6, '55-59':7, '60-64':8, '65-69':9, '70-74':10, '75-79':11, '80 or older':12})
+df_race = df[['Race']].replace({'American Indian/Alaskan Native':0, 'Asian':1, 'Black':2, 'Hispanic':3, 'Other':4, 'White':5})
+df_genhealth = df[['GenHealth']].replace({'Excellent':4, 'Very good':3, 'Good':2, 'Fair':1, 'Poor':0})
+df_category = pd.concat([df_sex, df_agecategory, df_race, df_genhealth], axis=1)
+df_category.head()
   
+
   
   
   - Graphs, tables, any statistics
