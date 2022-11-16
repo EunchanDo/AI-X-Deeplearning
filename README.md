@@ -192,7 +192,41 @@ df.head()
   df_train = pd.concat([df_yes_train, df_no_train]).sample(frac=1).reset_index(drop=True)
   df_test = pd.concat([df_yes_test, df_no_test]).sample(frac=1).reset_index(drop=True)
   ```  
-  <br>총 319,795개의 HeartDisease(심장병 발병) 데이터 중 Yes(발병)에 해당하는 데이터는 27,373개로 약 8.56% 정도로 적은 비율을 가지므로 학습/시험 데이터를 랜덤하게 분리하게 될 경우 Yes(발병)에 해당하는 데이터가 훈련에 너무 적게 들어갈 우려가 있다고 판단하였다. 따라서 이번 프로젝트에서는 Yes(발병) 및 No(발병 X)에 해당하는 데이터를 각각 8/2 비율로 분리하고 이 비율을 유지하며 다시 합치는 과정을 통해 훈련/시험 데이터셋을 구성하였다. 이를 통해 데이터 불균형으로 인한 문제를 방지하고자 한다. 
+  <br>총 319,795개의 HeartDisease(심장병 발병) 데이터 중 Yes(발병)에 해당하는 데이터는 27,373개로 약 8.56% 정도로 적은 비율을 가지므로 학습/시험 데이터를 랜덤하게 분리하게 될 경우 Yes(발병)에 해당하는 데이터가 훈련에 너무 적게 들어갈 우려가 있다고 판단하였다. 따라서 이번 프로젝트에서는 Yes(발병) 및 No(발병 X)에 해당하는 데이터를 각각 8/2 비율로 분리하고 이 비율을 유지하며 다시 합치는 과정을 통해 훈련/시험 데이터셋을 구성하였다. 이를 통해 데이터 불균형으로 인한 문제를 방지하고자 한다.
+  
+  ```python
+  # train dataset check
+  df_train.head(5)
+  ```
+  |index|BMI|PhysicalHealth|MentalHealth|SleepTime|HeartDisease|Smoking|AlcoholDrinking|Stroke|DiffWalking|PhysicalActivity|Asthma|KidneyDisease|SkinCancer|Diabetic|Sex|AgeCategory|Race|GenHealth|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|0|0\.15368827719425332|0\.06666666666666667|0\.0|0\.34782608695652173|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.5|1\.0|0\.75|
+|1|0\.27381383556682365|0\.0|0\.0|0\.30434782608695654|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.3333333333333333|1\.0|0\.5|
+|2|0\.15694796571290598|0\.0|0\.0|0\.21739130434782608|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.5|1\.0|0\.75|
+|3|0\.10817336713751058|0\.0|0\.0|0\.30434782608695654|0\.0|1\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.08333333333333333|1\.0|0\.25|
+|4|0\.27465893999758545|0\.0|0\.0|0\.30434782608695654|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.8|0\.5|
+
+  ```python
+  # test dataset check
+  df_test.head(5)
+  ```
+  |index|BMI|PhysicalHealth|MentalHealth|SleepTime|HeartDisease|Smoking|AlcoholDrinking|Stroke|DiffWalking|PhysicalActivity|Asthma|KidneyDisease|SkinCancer|Diabetic|Sex|AgeCategory|Race|GenHealth|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|0|0\.24508028492092238|0\.0|0\.0|0\.21739130434782608|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.6666666666666666|1\.0|0\.75|
+|1|0\.19703006157189423|0\.0|0\.1|0\.26086956521739135|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.5|0\.8|0\.75|
+|2|0\.2113968368948449|0\.0|0\.0|0\.3913043478260869|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.5|0\.6000000000000001|0\.5|
+|3|0\.1574308825304841|0\.0|0\.4|0\.30434782608695654|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.8333333333333333|1\.0|1\.0|
+|4|0\.15429192321622603|0\.0|0\.06666666666666667|0\.17391304347826086|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.75|1\.0|0\.5|
+
+  ```python
+  # Extract 9 features
+  train_x = df_train[['PhysicalHealth', 'Smoking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'KidneyDisease', 'Diabetic', 'AgeCategory', 'GenHealth']]
+  train_y = df_train[['HeartDisease']]
+  test_x = df_test[['PhysicalHealth', 'Smoking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'KidneyDisease', 'Diabetic', 'AgeCategory', 'GenHealth']]
+  test_y = df_test[['HeartDisease']]
+  print(train_x.shape, train_y.shape, test_x.shape, test_y.shape)
+  ```
+  <br>이를 통해 255,836개의 train dataset과 63,959개의 test dataset을 구축한다.
   
   - Graphs, tables, any statistics
   
