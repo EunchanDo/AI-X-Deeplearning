@@ -67,6 +67,7 @@ df.head()
   from sklearn.linear_model import LogisticRegression
   ```
   ```python
+  # Read csv data
   df = pd.read_csv('/content/drive/MyDrive/heart_2020_cleaned.csv')
   print(df.head())
   ```
@@ -77,6 +78,25 @@ df.head()
 |2|No|26\.58|Yes|No|No|20\.0|30\.0|No|Male|65-69|White|Yes|Yes|Fair|8\.0|Yes|No|No|
 |3|No|24\.21|No|No|No|0\.0|0\.0|No|Female|75-79|White|No|No|Good|6\.0|No|No|Yes|
 |4|No|23\.71|No|No|No|28\.0|0\.0|Yes|Female|40-44|White|No|Yes|Very good|8\.0|No|No|No|
+
+**Feature Engineering**
+
+  ```python
+  # Extract String feature
+  df_string = df[['BMI', 'PhysicalHealth', 'MentalHealth', 'SleepTime']]
+  df_string.head()
+  ```
+  |index|BMI|PhysicalHealth|MentalHealth|SleepTime|
+|---|---|---|---|---|
+|0|16\.6|3\.0|30\.0|5\.0|
+|1|20\.34|0\.0|0\.0|7\.0|
+|2|26\.58|20\.0|30\.0|8\.0|
+|3|24\.21|0\.0|0\.0|6\.0|
+|4|23\.71|28\.0|0\.0|8\.0|
+
+
+  
+  
   
   - Graphs, tables, any statistics
   
