@@ -157,8 +157,7 @@ df.head()
   df_scaled = pd.DataFrame(df_scaled, columns=df_modified.columns)
   df_scaled.head(10)
   ```
-  
-  |index|BMI|PhysicalHealth|MentalHealth|SleepTime|HeartDisease|Smoking|AlcoholDrinking|Stroke|DiffWalking|PhysicalActivity|Asthma|KidneyDisease|SkinCancer|Diabetic|Sex|AgeCategory|Race|GenHealth|
+   |index|BMI|PhysicalHealth|MentalHealth|SleepTime|HeartDisease|Smoking|AlcoholDrinking|Stroke|DiffWalking|PhysicalActivity|Asthma|KidneyDisease|SkinCancer|Diabetic|Sex|AgeCategory|Race|GenHealth|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |0|0\.055293975612700746|0\.1|1\.0|0\.17391304347826086|0\.0|1\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.0|1\.0|1\.0|0\.0|0\.5833333333333333|1\.0|0\.75|
 |1|0\.10044669805625983|0\.0|0\.0|0\.26086956521739135|0\.0|0\.0|0\.0|1\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.75|
@@ -176,10 +175,9 @@ df.head()
   plt.figure(figsize=(12, 12))
   sns.heatmap(data=df_scaled.corr(), annot=True, fmt='.2f', linewidth=0.5, cmap='Blues')
   ```
-  
   ![image](https://user-images.githubusercontent.com/116618556/202103973-f6103b27-c795-4aa7-836a-2ed9bf3455e8.png)
 
-  <br> 
+  <br>Corrleation coefficient의 절댓값이 0.1 이상인 값들은 HeartDiease와 상대적으로 강한 선형관계를 가지므로 이 feature들만 사용하는 경우와 모든 feature를 다 사용하는 경우의 정확도에 대한 비교를 진행하고자 한다. 
   
   ## **- Train/Test split**
   
