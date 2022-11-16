@@ -228,6 +228,7 @@ df.head()
   test_y = df_test[['HeartDisease']]
   print(train_x.shape, train_y.shape, test_x.shape, test_y.shape)
   
+  
   ## **- Model training with selected features**
   ```
   
