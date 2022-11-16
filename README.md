@@ -259,7 +259,7 @@ df.head()
   print(train_x.shape, train_y.shape, test_x.shape, test_y.shape)
   ```
   
-  ## **- Model training with selected features**
+  ## **- Model training with all features**
   ```python
   # RandomForest with all features
   rf_model = RandomForestClassifier(n_estimators=500, random_state=0)
@@ -281,10 +281,14 @@ df.head()
 # **Ⅴ. Related Work**
    <br>> http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002 (심장질환 예방)
    <br>> https://www.nhis.or.kr/magazin/mobile/201411/sub02_02.html
-   <br>> https://www.korea.kr/news/healthView.do?newsId=148896724
+   <br>> https://www.korea.kr/news/healthView.do?newsId=148896724 (심장질환)
    <br>> https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋)
-   <br>> https://computer-science-student.tistory.com/113
-   <br>> https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic
+   <br>> https://computer-science-student.tistory.com/113 (Titanic 생존자 예측)
+   <br>> https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic (Exporling Survival on the Titanic)
    <br>> https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks (Github Readme code block)
+   <br>> https://www.kaggle.com/code/prashant111/svm-classifier-tutorial/notebook (Support Vector Machine)
+   <br>> 
+   <br>>
+   <br>>
    
 # **Ⅵ. Conclusion: Discussion**
