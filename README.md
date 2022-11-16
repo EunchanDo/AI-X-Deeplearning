@@ -216,6 +216,7 @@ df.head()
 |2|0\.2113968368948449|0\.0|0\.0|0\.3913043478260869|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.5|0\.6000000000000001|0\.5|
 |3|0\.1574308825304841|0\.0|0\.4|0\.30434782608695654|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.8333333333333333|1\.0|1\.0|
 |4|0\.15429192321622603|0\.0|0\.06666666666666667|0\.17391304347826086|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.75|1\.0|0\.5|
+
 이를 통해 255,836개의 train dataset과 63,959개의 test dataset을 구축한다.
 
   ## **- Feature Selection**
@@ -226,6 +227,8 @@ df.head()
   test_x = df_test[['PhysicalHealth', 'Smoking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'KidneyDisease', 'Diabetic', 'AgeCategory', 'GenHealth']]
   test_y = df_test[['HeartDisease']]
   print(train_x.shape, train_y.shape, test_x.shape, test_y.shape)
+  
+  ## **- Model training with selected features**
   ```
   
   ```python
