@@ -46,7 +46,7 @@
   - Explaining your choice of algorithms
   <br> SVM, logistic regression, random forest ...
   - Explaining features
-  <br> 
+ 
 ```python
 df = pd.read_csv('/content/drive/MyDrive/AIX_deeplearning data/heart_2020_cleaned.csv')
 df.head()
@@ -54,8 +54,9 @@ df.head()
 
 **Ⅳ. Evaluation & Analysis**
   
-  <br>
-  `import pandas as pd
+  ```python
+  # Import libraries
+  import pandas as pd
   from sklearn import preprocessing
   import matplotlib.pyplot as plt
   import seaborn as sns
@@ -63,7 +64,15 @@ df.head()
   from sklearn.metrics import accuracy_score
   import sklearn.svm as svm
   import sklearn.metrics as mt
-  from sklearn.linear_model import LogisticRegression`
+  from sklearn.linear_model import LogisticRegression
+  ```
+  ```python
+  df = pd.read_csv('/content/drive/MyDrive/heart_2020_cleaned.csv')
+  print(df.head())
+  ```
+  ```python
+  
+  
 
   - Graphs, tables, any statistics
   
@@ -74,5 +83,6 @@ df.head()
    <br>> https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋)
    <br>> https://computer-science-student.tistory.com/113
    <br>> https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic
+   <br>> https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks (Github Readme code block)
    
 **Ⅵ. Conclusion: Discussion**
