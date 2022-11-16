@@ -46,7 +46,7 @@
   - Explaining your choice of algorithms
   
   - Explaining features
-  
+  <br> 
 **Ⅳ. Evaluation & Analysis**
 
   - Graphs, tables, any statistics
