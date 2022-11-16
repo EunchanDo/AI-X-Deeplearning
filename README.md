@@ -81,7 +81,7 @@ df.head()
 |3|No|24\.21|No|No|No|0\.0|0\.0|No|Female|75-79|White|No|No|Good|6\.0|No|No|Yes|
 |4|No|23\.71|No|No|No|28\.0|0\.0|Yes|Female|40-44|White|No|Yes|Very good|8\.0|No|No|No|
 
-**- Feature Engineering**
+## **- Feature Engineering**
 
   ```python
   # Extract String feature
@@ -97,7 +97,7 @@ df.head()
 |4|23\.71|28\.0|0\.0|8\.0|
 
   ```python
-  # Extract Boolean feature & switch it to string factor
+  # Extract Boolean feature & Switch it to string factor
   df_diabetic = df[['Diabetic']].replace({'Yes (during pregnancy)' : 1, 'No, borderline diabetes' : 0})
   df_bool_1 = df[['HeartDisease', 'Smoking', 'AlcoholDrinking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer']]
   df_bool = pd.concat([df_bool_1, df_diabetic], axis=1)
@@ -114,14 +114,85 @@ df.head()
 |4|0|0|0|0|1|1|0|0|0|0|
 
   ```python
+  # Extract categorical feature & Switch it to string factor
   df_sex = df[['Sex']].replace({'Female':0, 'Male':1})
-df_agecategory = df[['AgeCategory']].replace({'18-24':0, '25-29':1, '30-34':2, '35-39':3, '40-44':4, '45-49':5, '50-54':6, '55-59':7, '60-64':8, '65-69':9, '70-74':10, '75-79':11, '80 or older':12})
-df_race = df[['Race']].replace({'American Indian/Alaskan Native':0, 'Asian':1, 'Black':2, 'Hispanic':3, 'Other':4, 'White':5})
-df_genhealth = df[['GenHealth']].replace({'Excellent':4, 'Very good':3, 'Good':2, 'Fair':1, 'Poor':0})
-df_category = pd.concat([df_sex, df_agecategory, df_race, df_genhealth], axis=1)
-df_category.head()
+  df_agecategory = df[['AgeCategory']].replace({'18-24':0, '25-29':1, '30-34':2, '35-39':3, '40-44':4, '45-49':5, '50-54':6, '55-59':7, '60-64':8, '65-69':9, '70-74':10, '75-79':11, '80 or older':12})
+  df_race = df[['Race']].replace({'American Indian/Alaskan Native':0, 'Asian':1, 'Black':2, 'Hispanic':3, 'Other':4, 'White':5})
+  df_genhealth = df[['GenHealth']].replace({'Excellent':4, 'Very good':3, 'Good':2, 'Fair':1, 'Poor':0})
+  df_category = pd.concat([df_sex, df_agecategory, df_race, df_genhealth], axis=1)
+  df_category.head()
+  ```
   
+|index|Sex|AgeCategory|Race|GenHealth|
+|---|---|---|---|---|
+|0|0|7|5|3|
+|1|0|12|5|3|
+|2|1|9|5|1|
+|3|0|11|5|2|
+|4|0|4|5|3|
 
+  ```python
+  # Concatenate separated columns into one data frame
+  df_modified = pd.concat([df_string, df_bool, df_category], axis=1)
+  df_modified.head(10)
+  ```
+  
+  |index|BMI|PhysicalHealth|MentalHealth|SleepTime|HeartDisease|Smoking|AlcoholDrinking|Stroke|DiffWalking|PhysicalActivity|Asthma|KidneyDisease|SkinCancer|Diabetic|Sex|AgeCategory|Race|GenHealth|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|0|16\.6|3\.0|30\.0|5\.0|0|1|0|0|0|1|1|0|1|1|0|7|5|3|
+|1|20\.34|0\.0|0\.0|7\.0|0|0|0|1|0|1|0|0|0|0|0|12|5|3|
+|2|26\.58|20\.0|30\.0|8\.0|0|1|0|0|0|1|1|0|0|1|1|9|5|1|
+|3|24\.21|0\.0|0\.0|6\.0|0|0|0|0|0|0|0|0|1|0|0|11|5|2|
+|4|23\.71|28\.0|0\.0|8\.0|0|0|0|0|1|1|0|0|0|0|0|4|5|3|
+|5|28\.87|6\.0|0\.0|12\.0|1|1|0|0|1|0|0|0|0|0|0|11|2|1|
+|6|21\.63|15\.0|0\.0|4\.0|0|0|0|0|0|1|1|0|1|0|0|10|5|1|
+|7|31\.64|5\.0|0\.0|9\.0|0|1|0|0|1|0|1|0|0|1|0|12|5|2|
+|8|26\.45|0\.0|0\.0|5\.0|0|0|0|0|0|0|0|1|0|0|0|12|5|1|
+|9|40\.69|0\.0|0\.0|10\.0|0|0|0|0|1|1|0|0|0|0|1|9|5|2|
+
+  ```python
+  # Min-Max normalization
+  min_max_scaler = preprocessing.MinMaxScaler()
+  df_scaled = min_max_scaler.fit_transform(df_modified)
+  df_scaled = pd.DataFrame(df_scaled, columns=df_modified.columns)
+  df_scaled.head(10)
+  ```
+  
+  |index|BMI|PhysicalHealth|MentalHealth|SleepTime|HeartDisease|Smoking|AlcoholDrinking|Stroke|DiffWalking|PhysicalActivity|Asthma|KidneyDisease|SkinCancer|Diabetic|Sex|AgeCategory|Race|GenHealth|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|0|0\.055293975612700746|0\.1|1\.0|0\.17391304347826086|0\.0|1\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.0|1\.0|1\.0|0\.0|0\.5833333333333333|1\.0|0\.75|
+|1|0\.10044669805625983|0\.0|0\.0|0\.26086956521739135|0\.0|0\.0|0\.0|1\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.75|
+|2|0\.17578172159845468|0\.6666666666666666|1\.0|0\.30434782608695654|0\.0|1\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.0|0\.0|1\.0|1\.0|0\.75|1\.0|0\.25|
+|3|0\.147168900156948|0\.0|0\.0|0\.21739130434782608|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.9166666666666666|1\.0|0\.5|
+|4|0\.14113243993722085|0\.9333333333333333|0\.0|0\.30434782608695654|0\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.3333333333333333|1\.0|0\.75|
+|5|0\.20342870940480506|0\.2|0\.0|0\.4782608695652174|1\.0|1\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.9166666666666666|0\.4|0\.25|
+|6|0\.11602076542315587|0\.5|0\.0|0\.13043478260869565|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.0|1\.0|0\.0|0\.0|0\.8333333333333333|1\.0|0\.25|
+|7|0\.23687069902209346|0\.16666666666666666|0\.0|0\.34782608695652173|0\.0|1\.0|0\.0|0\.0|1\.0|0\.0|1\.0|0\.0|0\.0|1\.0|0\.0|1\.0|1\.0|0\.5|
+|8|0\.17421224194132562|0\.0|0\.0|0\.17391304347826086|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.25|
+|9|0\.34613062899915487|0\.0|0\.0|0\.3913043478260869|0\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.75|1\.0|0\.5|
+
+  ```python
+  # Correlation heatmap
+  plt.figure(figsize=(12, 12))
+  sns.heatmap(data=df_scaled.corr(), annot=True, fmt='.2f', linewidth=0.5, cmap='Blues')
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/116618556/202103973-f6103b27-c795-4aa7-836a-2ed9bf3455e8.png)
+
+  <br> 
+  
+  ## **- Train/Test split**
+  
+  ```python
+  df_yes = df_scaled[df['HeartDisease']=='Yes']
+  df_no = df_scaled[df['HeartDisease']=='No']
+  df_yes_train = df_yes.iloc[0:21898]
+  df_yes_test = df_yes.iloc[21898:]
+  df_no_train = df_no.iloc[0:233938]
+  df_no_test = df_no.iloc[233938:]
+  df_train = pd.concat([df_yes_train, df_no_train]).sample(frac=1).reset_index(drop=True)
+  df_test = pd.concat([df_yes_test, df_no_test]).sample(frac=1).reset_index(drop=True)
+  ```
   
   
   - Graphs, tables, any statistics
