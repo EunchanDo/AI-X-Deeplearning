@@ -48,21 +48,7 @@
   - Explaining your choice of algorithms
   <br> SVM, logistic regression, random forest ...
   - Explaining features
- 1231231231231231231231231231231231231231231
- 123
- 124
- 24
- 1
- 2341
- 234
- 135
- 1235
- 135
- 1235
- 123
- 51
- 235
- 13
+  
 ```python
 df = pd.read_csv('/content/drive/MyDrive/AIX_deeplearning data/heart_2020_cleaned.csv')
 df.head()
