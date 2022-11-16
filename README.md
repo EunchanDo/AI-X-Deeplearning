@@ -103,6 +103,9 @@ memory usage: 43.9+ MB
 ```
 확인 결과 결측지는 존재하지 않음.
 
+## 데이터 분석
+
+### 심장병 발병 여부
 ```python
 f, ax = plt.subplots(1,2,figsize=(18,8))
 df['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
@@ -119,8 +122,39 @@ plt.show()
 ```
 ![image](https://user-images.githubusercontent.com/116618571/202108277-6fad8ddc-478e-43d8-96ef-8f011650217b.png)
 
+### 성별에 따른 심장병 발병 여부
+```python
+f, ax = plt.subplots(1,2,figsize=(18,8))
 
+sns.countplot('Sex', data=df, ax=ax[0])
+ax[0].set_title('Sex Ratio', fontsize=20)
+ax[0].set_ylabel('')
+ax[0].set_xlabel('Sex', fontsize=16)
 
+sns.countplot('Sex',hue='HeartDisease', data=df, ax=ax[1])
+ax[1].set_title('Sex: HeartDisease and Healthy', fontsize=20)
+ax[1].set_ylabel('Count', fontsize=16)
+ax[1].set_xlabel('Sex', fontsize=16)
+```
+```python
+m_df=df[df['Sex']=='Male']
+fm_df=df[df['Sex']=='Female']
+```
+```python
+f, ax = plt.subplots(1,2,figsize=(18,8))
+m_df['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
+                                             autopct='%1.1f%%', ax=ax[0],shadow=True)
+
+ax[0].set_title('PiePlot - Male\'s HeartDisease', fontsize=20)
+ax[0].set_ylabel('')
+
+fm_df['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
+                                             autopct='%1.1f%%', ax=ax[1],shadow=True)
+
+ax[1].set_title('PiePlot - Female\'s HeartDisease', fontsize=20)
+ax[1].set_ylabel('')
+```
+![image](https://user-images.githubusercontent.com/116618571/202109298-cfe63eb8-c71e-4bb4-bc2c-08abe157c7de.png)
 
 
 # **Ⅳ. Evaluation & Analysis**
