@@ -176,7 +176,7 @@ df.head()
   sns.heatmap(data=df_scaled.corr(), annot=True, fmt='.2f', linewidth=0.5, cmap='Blues')
   ```
   ![image](https://user-images.githubusercontent.com/116618556/202103973-f6103b27-c795-4aa7-836a-2ed9bf3455e8.png)
-Corrleation coefficient의 절댓값이 0.1 이상인 총 9개의 feature들(PhysicalHealth, Smoking, Stroke, DiffWalking, PhysicalActivity, KidneyDisease, Diabetic, AgeCategory, GenHealth)은 타 feature들에 비해 HeartDiease와 상대적으로 강한 선형관계를 가지므로 이 feature들만 사용하는 경우와 모든 feature를 다 사용하는 경우의 정확도에 대한 비교를 진행하고자 한다. 
+<br>Corrleation coefficient의 절댓값이 0.1 이상인 총 9개의 feature들(PhysicalHealth, Smoking, Stroke, DiffWalking, PhysicalActivity, KidneyDisease, Diabetic, AgeCategory, GenHealth)은 타 feature들에 비해 HeartDiease와 상대적으로 강한 선형관계를 가지므로 이 feature들만 사용하는 경우와 모든 feature를 다 사용하는 경우의 정확도에 대한 비교를 진행하고자 한다. 
   
   ## **- Train/Test split**
   
