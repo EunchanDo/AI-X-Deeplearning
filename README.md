@@ -158,6 +158,19 @@ ax[1].set_ylabel('')
 ```
 ![image](https://user-images.githubusercontent.com/116618571/202109298-cfe63eb8-c71e-4bb4-bc2c-08abe157c7de.png)
 
+```
+groups = h_df.groupby(['HeartDisease','Race'])
+Yes = dict(groups.size()[6:])
+sorted_Yes = sorted(Yes.items())
+```
+```
+race = dict(h_df['Race'].value_counts())
+sorted_race = sorted(race.items())
+```
+
+
+
+
 
 # **Ⅳ. Evaluation & Analysis**
   
