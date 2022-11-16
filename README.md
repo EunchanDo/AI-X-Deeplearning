@@ -46,8 +46,10 @@
   - Explaining your choice of algorithms
   <br> SVM, logistic regression, random forest ...
   - Explaining features
-  <br> <script src="https://gist.github.com/jdd2635/b5d0088043a497ed0bbe42f1b4864800.js"></script>
-  
+  <br> 
+'''df = pd.read_csv('/content/drive/MyDrive/AIX_deeplearning data/heart_2020_cleaned.csv')
+df.head()
+'''  
 **Ⅳ. Evaluation & Analysis**
 
   - Graphs, tables, any statistics
