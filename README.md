@@ -48,129 +48,11 @@
   - Explaining your choice of algorithms
   <br> SVM, logistic regression, random forest ...
   - Explaining features
-
-## 데이터 분석을 위한 라이브러리 불러오기
-```python
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import missingno as msno
-```
-## 데이터 셋 불러오기
+  
 ```python
 df = pd.read_csv('/content/drive/MyDrive/AIX_deeplearning data/heart_2020_cleaned.csv')
 df.head()
 ```
-|index|HeartDisease|BMI|Smoking|AlcoholDrinking|Stroke|PhysicalHealth|MentalHealth|DiffWalking|Sex|AgeCategory|Race|Diabetic|PhysicalActivity|GenHealth|SleepTime|Asthma|KidneyDisease|SkinCancer|
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|0|No|16\.6|Yes|No|No|3\.0|30\.0|No|Female|55-59|White|Yes|Yes|Very good|5\.0|Yes|No|Yes|
-|1|No|20\.34|No|No|Yes|0\.0|0\.0|No|Female|80 or older|White|No|Yes|Very good|7\.0|No|No|No|
-|2|No|26\.58|Yes|No|No|20\.0|30\.0|No|Male|65-69|White|Yes|Yes|Fair|8\.0|Yes|No|No|
-|3|No|24\.21|No|No|No|0\.0|0\.0|No|Female|75-79|White|No|No|Good|6\.0|No|No|Yes|
-|4|No|23\.71|No|No|No|28\.0|0\.0|Yes|Female|40-44|White|No|Yes|Very good|8\.0|No|No|No|
-
-## 데이터 셋의 결측치 여부 확인
-```python
-df.info()
-```
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 319795 entries, 0 to 319794
-Data columns (total 18 columns):
- #   Column            Non-Null Count   Dtype  
----  ------            --------------   -----  
- 0   HeartDisease      319795 non-null  object 
- 1   BMI               319795 non-null  float64
- 2   Smoking           319795 non-null  object 
- 3   AlcoholDrinking   319795 non-null  object 
- 4   Stroke            319795 non-null  object 
- 5   PhysicalHealth    319795 non-null  float64
- 6   MentalHealth      319795 non-null  float64
- 7   DiffWalking       319795 non-null  object 
- 8   Sex               319795 non-null  object 
- 9   AgeCategory       319795 non-null  object 
- 10  Race              319795 non-null  object 
- 11  Diabetic          319795 non-null  object 
- 12  PhysicalActivity  319795 non-null  object 
- 13  GenHealth         319795 non-null  object 
- 14  SleepTime         319795 non-null  float64
- 15  Asthma            319795 non-null  object 
- 16  KidneyDisease     319795 non-null  object 
- 17  SkinCancer        319795 non-null  object 
-dtypes: float64(4), object(14)
-memory usage: 43.9+ MB
-```
-확인 결과 결측지는 존재하지 않음.
-
-## 데이터 분석
-
-### 심장병 발병 여부
-```python
-f, ax = plt.subplots(1,2,figsize=(18,8))
-df['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
-                                             autopct='%1.1f%%', ax=ax[0],shadow=True)
-
-ax[0].set_title('PiePlot - HeartDisease', fontsize=20)
-ax[0].set_ylabel('')
-
-sns.countplot('HeartDisease', data=df, ax=ax[1])
-ax[1].set_title('CountPlot - HeartDisease', fontsize=20)
-ax[1].set_xlabel('HeartDisease', fontsize=16)
-ax[1].set_ylabel('Count', fontsize=16)
-plt.show()
-```
-![image](https://user-images.githubusercontent.com/116618571/202108277-6fad8ddc-478e-43d8-96ef-8f011650217b.png)
-
-### 성별에 따른 심장병 발병 여부
-```python
-f, ax = plt.subplots(1,2,figsize=(18,8))
-
-sns.countplot('Sex', data=df, ax=ax[0])
-ax[0].set_title('Sex Ratio', fontsize=20)
-ax[0].set_ylabel('')
-ax[0].set_xlabel('Sex', fontsize=16)
-
-sns.countplot('Sex',hue='HeartDisease', data=df, ax=ax[1])
-ax[1].set_title('Sex: HeartDisease and Healthy', fontsize=20)
-ax[1].set_ylabel('Count', fontsize=16)
-ax[1].set_xlabel('Sex', fontsize=16)
-```
-![image](https://user-images.githubusercontent.com/116618571/202109573-6cadd39b-9b8e-41ff-b021-cf0974186336.png)
-
-```python
-m_df=df[df['Sex']=='Male']
-fm_df=df[df['Sex']=='Female']
-```
-```python
-f, ax = plt.subplots(1,2,figsize=(18,8))
-m_df['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
-                                             autopct='%1.1f%%', ax=ax[0],shadow=True)
-
-ax[0].set_title('PiePlot - Male\'s HeartDisease', fontsize=20)
-ax[0].set_ylabel('')
-
-fm_df['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
-                                             autopct='%1.1f%%', ax=ax[1],shadow=True)
-
-ax[1].set_title('PiePlot - Female\'s HeartDisease', fontsize=20)
-ax[1].set_ylabel('')
-```
-![image](https://user-images.githubusercontent.com/116618571/202109298-cfe63eb8-c71e-4bb4-bc2c-08abe157c7de.png)
-
-```
-groups = h_df.groupby(['HeartDisease','Race'])
-Yes = dict(groups.size()[6:])
-sorted_Yes = sorted(Yes.items())
-```
-```
-race = dict(h_df['Race'].value_counts())
-sorted_race = sorted(race.items())
-```
-
-
-
-
 
 # **Ⅳ. Evaluation & Analysis**
   
@@ -295,11 +177,12 @@ sorted_race = sorted(race.items())
   ```
   ![image](https://user-images.githubusercontent.com/116618556/202103973-f6103b27-c795-4aa7-836a-2ed9bf3455e8.png)
 
-  <br>Corrleation coefficient의 절댓값이 0.1 이상인 값들은 HeartDiease와 상대적으로 강한 선형관계를 가지므로 이 feature들만 사용하는 경우와 모든 feature를 다 사용하는 경우의 정확도에 대한 비교를 진행하고자 한다. 
+  <br>Corrleation coefficient의 절댓값이 0.1 이상인 총 9개의 feature들(PhysicalHealth, Smoking, Stroke, DiffWalking, PhysicalActivity, KidneyDisease, Diabetic, AgeCategory, GenHealth)은 타 feature들에 비해 HeartDiease와 상대적으로 강한 선형관계를 가지므로 이 feature들만 사용하는 경우와 모든 feature를 다 사용하는 경우의 정확도에 대한 비교를 진행하고자 한다. 
   
   ## **- Train/Test split**
   
   ```python
+  # Train/Test split
   df_yes = df_scaled[df['HeartDisease']=='Yes']
   df_no = df_scaled[df['HeartDisease']=='No']
   df_yes_train = df_yes.iloc[0:21898]
@@ -308,8 +191,8 @@ sorted_race = sorted(race.items())
   df_no_test = df_no.iloc[233938:]
   df_train = pd.concat([df_yes_train, df_no_train]).sample(frac=1).reset_index(drop=True)
   df_test = pd.concat([df_yes_test, df_no_test]).sample(frac=1).reset_index(drop=True)
-  ```
-  
+  ```  
+  <br> 총 319,795개의 HeartDisease(심장병 발병) 데이터 중 Yes(발병)에 해당하는 데이터는 27,373개로 약 8.56% 정도로 적은 비율을 가지므로 학습/시험 데이터를 랜덤하게 분리하게 될 경우 Yes(발병)에 해당하는 데이터가 훈련에 너무 적게 들어갈 우려가 있다고 판단하였다. 따라서 이번 프로젝트에서는 Yes(발병) 및 No(발병 X)에 해당하는 데이터를 각각 8/2 비율로 분리하고 이 비율을 유지하며 다시 합치는 과정을 통해 훈련/시험 데이터셋을 구성하였다. 이를 통해 데이터 불균형으로 인한 문제를 방지하고자 한다. 
   
   - Graphs, tables, any statistics
   
