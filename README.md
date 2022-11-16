@@ -227,11 +227,9 @@ df.head()
   test_x = df_test[['PhysicalHealth', 'Smoking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'KidneyDisease', 'Diabetic', 'AgeCategory', 'GenHealth']]
   test_y = df_test[['HeartDisease']]
   print(train_x.shape, train_y.shape, test_x.shape, test_y.shape)
-  
-  
-  ## **- Model training with selected features**
   ```
   
+  ## **- Model training with selected features**
   ```python
   # RandomForest with selected features
   rf_model = RandomForestClassifier(n_estimators=500, random_state=0)
