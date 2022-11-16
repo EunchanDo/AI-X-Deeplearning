@@ -49,6 +49,7 @@
   <br> SVM, logistic regression, random forest ...
   - Explaining features
 
+## 데이터 분석을 위한 라이브러리 불러오기
 ```python
 import numpy as np
 import pandas as pd
@@ -56,6 +57,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import missingno as msno
 ```
+## 데이터 셋 불러오기
 ```python
 df = pd.read_csv('/content/drive/MyDrive/AIX_deeplearning data/heart_2020_cleaned.csv')
 df.head()
@@ -68,6 +70,7 @@ df.head()
 |3|No|24\.21|No|No|No|0\.0|0\.0|No|Female|75-79|White|No|No|Good|6\.0|No|No|Yes|
 |4|No|23\.71|No|No|No|28\.0|0\.0|Yes|Female|40-44|White|No|Yes|Very good|8\.0|No|No|No|
 
+## 데이터 셋의 결측치 여부 확인
 ```python
 df.info()
 ```
@@ -98,8 +101,9 @@ Data columns (total 18 columns):
 dtypes: float64(4), object(14)
 memory usage: 43.9+ MB
 ```
+확인 결과 결측지는 존재하지 않음.
 
-```
+```python
 f, ax = plt.subplots(1,2,figsize=(18,8))
 df['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
                                              autopct='%1.1f%%', ax=ax[0],shadow=True)
