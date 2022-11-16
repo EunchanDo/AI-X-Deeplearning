@@ -191,7 +191,7 @@ df.head()
   df_train = pd.concat([df_yes_train, df_no_train]).sample(frac=1).reset_index(drop=True)
   df_test = pd.concat([df_yes_test, df_no_test]).sample(frac=1).reset_index(drop=True)
   ```  
-총 319,795개의 HeartDisease(심장병 발병) 데이터 중 Yes(발병)에 해당하는 데이터는 27,373개로 약 8.56% 정도로 적은 비율을 가지므로 학습/시험 데이터를 랜덤하게 분리하게 될 경우 Yes(발병)에 해당하는 데이터가 훈련에 너무 적게 들어갈 우려가 있다고 판단하였다. 따라서 이번 프로젝트에서는 Yes(발병) 및 No(발병 X)에 해당하는 데이터를 각각 8/2 비율로 분리하고 이 비율을 유지하며 다시 합치는 과정을 통해 훈련/시험 데이터셋을 구성하였다. 이를 통해 데이터 불균형으로 인한 문제를 방지하고자 한다.
+총 319,795개의 HeartDisease(심장병 발병) 데이터 중 Yes(발병)에 해당하는 데이터는 27,373개로 약 8.56% 정도로 적은 비율을 가지므로 학습/시험 데이터를 랜덤하게 분리하게 될 경우 Yes(발병)에 해당하는 데이터가 학습 데이터셋에 너무 적게 들어갈 우려가 있다고 판단하였다. 따라서 이번 프로젝트에서는 Yes(발병) 및 No(발병 X)에 해당하는 데이터를 각각 8/2 비율로 분리하고 이 비율을 유지하며 다시 합치는 과정을 통해 훈련/시험 데이터셋을 구성하였다. 이를 통해 데이터 불균형으로 인한 문제를 방지하고자 한다.
   ```python
   # train dataset check
   df_train.head(5)
@@ -213,6 +213,8 @@ df.head()
 |3|0\.1574308825304841|0\.0|0\.4|0\.30434782608695654|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.8333333333333333|1\.0|1\.0|
 |4|0\.15429192321622603|0\.0|0\.06666666666666667|0\.17391304347826086|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.75|1\.0|0\.5|
 이를 통해 255,836개의 train dataset과 63,959개의 test dataset을 구축한다.
+
+  ## **- Feature Selection**
   ```python
   # Extract 9 features
   train_x = df_train[['PhysicalHealth', 'Smoking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'KidneyDisease', 'Diabetic', 'AgeCategory', 'GenHealth']]
@@ -227,6 +229,20 @@ df.head()
   rf_model.fit(train_x, train_y)
   score = rf_model.score(test_x, test_y)
   print(score)
+  ```
+  Random forest model에 선별된 feature들을 넣고 예측했을 때, **91.06%** 의 정확도로 예측하는 것을 확인할 수 있다.
+  
+  ```python
+  # Logistic Regression with selected features
+  lr_model = LogisticRegression(random_state=0)
+  lr_model.fit(train_x, train_y)
+  score = lr_model.score(test_x, test_y.values.ravel())
+  print(score*100)
+  ```
+  선별된 feature로 Logistic regression을 수행했을 때, **91.56%** 의 정확도로 예측하는 것을 확인할 수 있다.
+  
+  
+ 
   
   - Graphs, tables, any statistics
   
