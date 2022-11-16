@@ -249,8 +249,34 @@ df.head()
   ```
   
   선별된 feature로 Logistic regression을 수행했을 때, **91.56%** 의 정확도로 예측하는 것을 확인할 수 있다.
-    
-  - Graphs, tables, any statistics
+  
+  ## **- Select all features to compare**
+  ```python
+  train_x = df_train[['BMI', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'Smoking', 'AlcoholDrinking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer', 'Diabetic', 'Sex', 'AgeCategory', 'Race', 'GenHealth']]
+  train_y = df_train[['HeartDisease']]
+  test_x = df_test[['BMI', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'Smoking', 'AlcoholDrinking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer', 'Diabetic', 'Sex', 'AgeCategory', 'Race', 'GenHealth']]
+  test_y = df_test[['HeartDisease']]
+  print(train_x.shape, train_y.shape, test_x.shape, test_y.shape)
+  ```
+  
+  ## **- Model training with selected features**
+  ```python
+  # RandomForest with all features
+  rf_model = RandomForestClassifier(n_estimators=500, random_state=0)
+  rf_model.fit(train_x, train_y)
+  score = rf_model.score(test_x, test_y)
+  print(score*100)
+  ```
+  Random forest model에 모든 feature들을 넣고 예측했을 때, **90.67%** 의 정확도로 예측하는 것을 확인할 수 있다.
+  
+  ```python
+  # Logistic Regression with all features
+  lr_model = LogisticRegression(random_state=0)
+  lr_model.fit(train_x, train_y)
+  score = lr_model.score(test_x, test_y.values.ravel())
+  print(score*100)
+  ```
+  모든 feature로 Logistic regression을 수행했을 때, **91.60%** 의 정확도로 예측하는 것을 확인할 수 있다.
   
 # **Ⅴ. Related Work**
    <br>> http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002 (심장질환 예방)
