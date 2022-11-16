@@ -44,9 +44,9 @@
 **Ⅲ. Methodology**
 
   - Explaining your choice of algorithms
-  
+  <br> SVM, logistic regression, random forest ...
   - Explaining features
-  <br> 마나나나나나
+  <br> <script src="https://gist.github.com/jdd2635/b5d0088043a497ed0bbe42f1b4864800.js"></script>
   
 **Ⅳ. Evaluation & Analysis**
 
