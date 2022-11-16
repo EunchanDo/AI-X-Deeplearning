@@ -55,8 +55,7 @@ df.head()
 **Ⅳ. Evaluation & Analysis**
   
   <br>
-  '''
-  import pandas as pd
+  `import pandas as pd
   from sklearn import preprocessing
   import matplotlib.pyplot as plt
   import seaborn as sns
@@ -64,8 +63,7 @@ df.head()
   from sklearn.metrics import accuracy_score
   import sklearn.svm as svm
   import sklearn.metrics as mt
-  from sklearn.linear_model import LogisticRegression
-  '''
+  from sklearn.linear_model import LogisticRegression`
 
   - Graphs, tables, any statistics
   
