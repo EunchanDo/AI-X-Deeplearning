@@ -136,6 +136,8 @@ ax[1].set_title('Sex: HeartDisease and Healthy', fontsize=20)
 ax[1].set_ylabel('Count', fontsize=16)
 ax[1].set_xlabel('Sex', fontsize=16)
 ```
+![image](https://user-images.githubusercontent.com/116618571/202109573-6cadd39b-9b8e-41ff-b021-cf0974186336.png)
+
 ```python
 m_df=df[df['Sex']=='Male']
 fm_df=df[df['Sex']=='Female']
