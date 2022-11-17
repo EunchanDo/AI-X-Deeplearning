@@ -241,6 +241,9 @@ df.head()
   Random forest model에 선별된 feature들을 넣고 예측했을 때, **91.06%** 의 정확도로 예측하는 것을 확인할 수 있다.
   
   ```python
+  
+  
+  ```python
   # Logistic Regression with selected features
   lr_model = LogisticRegression(random_state=0)
   lr_model.fit(train_x, train_y)
@@ -287,7 +290,7 @@ df.head()
    <br>> https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic (Exporling Survival on the Titanic)
    <br>> https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks (Github Readme code block)
    <br>> https://www.kaggle.com/code/prashant111/svm-classifier-tutorial/notebook (Support Vector Machine)
-   <br>> 
+   <br>> https://partrita.github.io/posts/random-forest-python/ (python random forest analysis)
    <br>>
    <br>>
    
