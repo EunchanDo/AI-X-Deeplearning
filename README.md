@@ -33,7 +33,7 @@
   <br> 8. DiffWalking: 걷거나 계단을 오르내리는 데에 어려움이 있나요?, 불리언 자료형(Yes or No)
   <br> 9. Sex: 성별, 문자형 자료형(Male, Female)
   <br> 10. AgeCategory: 연령 범주를 14개로 카테고리화, 문자형 자료형(10-74, 65-69, 60-64 등)
-  <br> 11. Race: 인종, 문자형 자료형(White, Hispanic, Balck 등)
+  <br> 11. Race: 인종, 문자형 자료형(White, Hispanic, Black 등)
   <br> 12. Diabetic: 당뇨병 발병 여부, 불리언 자료형(Yes or No)
   <br> 13. PhysicalActivity: 지난 한 달(30일) 중 직업으로 인한 활동을 제외한 운동을 한 적이 있습니까?, 불리언 자료형(Yes or No)
   <br> 14. GenHealth: 전반적으로 자신의 건강이 좋다고 생각하십니까?, 정수형 자료형(Excellent, Very Good, Good, Fair, Poor)
@@ -50,7 +50,12 @@
 <br> Random Forest란
 
 ### **Logistic Regression**
-<br> Logistic Regression
+<br> 로지스틱 회귀(Logistic Regression)이란 독립 변수의 선형 결합을 이용하여 발생 가능성을 예측하는데 사용되는 통계 기법으로 선형 회귀(Linear Regression)에서 발전된 기법이다. 이번 프로젝트에서 사용하는 로지스틱 회귀 모델은 9개, 17개의 feature로 심장 질환 발병에 대해 예측하게 되므로 독립 변수 여러 개로 종속 변수를 예측하는 다항 로지스틱 회귀 모델이다. 로지스틱 함수의 형태는 아래와 같으며, 이는 독립 변수가 (-∞, ∞)의 어느 숫자이든 상관 없이 종속 변수 또는 결과 값이 항상 0과 1사이에 있도록 변환해주는 함수이다.
+![image](https://user-images.githubusercontent.com/116618556/203254630-a63723b5-80e5-4315-b648-7d06881b149b.png)
+
+
+
+<br> Logistic regression은 Anomaly detection, Disease prediction 등에 사용하는 모델로 심장 질환 발병을 예측하는 이번 프로젝트에 적합한 모델이라고 생각되어 채택하게 되었다.
 
 ## **Explaining features**
 
@@ -513,8 +518,8 @@ memory usage: 43.9+ MB
    <br>> https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks (Github Readme code block)
    <br>> https://partrita.github.io/posts/random-forest-python/ (python random forest analysis)
    <br>> https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a (Logistric Regression)
-   <br>> 
-   <br>>
+   <br>> https://www.ibm.com/topics/logistic-regression#anchor--1020983554 (Logistic Regression)
+   <br>> https://ko.wikipedia.org/wiki/%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1_%ED%9A%8C%EA%B7%80 (Logistic Regression)
    
 # **Ⅵ. Conclusion: Discussion**
   <br> 이번 프로젝트에서는 머신러닝 기법을 활용한 심장 질환 예측에 대해 selected feature만을 사용하는 경우와 모든 feature를 사용하는 경우의 정확도 비교를 진행하였다. 이때 심장질환 발병(HeartDisease)과 17개의 feature들 사이의 피어슨 상관 계수를 계산하여 절댓값이 0.1 이상인 9개의 feature(PhysicalHealth, Smoking, Stroke, DiffWalking, PhysicalActivity, KidneyDisease, Diabetic, AgeCategory, GenHealth)를 selected feature로 사용하였다. selected feature만을 사용하는 경우, random forest 모델의 정확도는 91.08%, logistic regression 모델의 정확도는 91.64%로 두 모델의 평균 정확도를 계산하면 91.36%이다. 모든 feature를 사용하는 경우, random forest 모델의 정확도는 90.66%, logistic regression 모델의 정확도는 91.53%로 두 모델의 평균 정확도는 91.10%이다. 각각의 평균 정확도를 비교하면 selected feature를 사용한 경우의 정확도가 모든 feature를 사용하는 경우에 비해 0.26% 소폭 높은 것을 확인할 수 있으며 이를 통해 모델 학습 시 선형 관계가 강한 feature들을 선별적으로 사용하는 경우가 모든 feature를 사용하는 경우에 비해 좋은 예측 결과를 나타낼 수 있다는 것을 확인할 수 있다.
