@@ -119,6 +119,50 @@ plt.show()
 
 위 그림은 전체 데이터 셋에대한 심장병 발병률과 발병 환자 수를 pieplot과 countplot으로 나타낸 그림이다. 심장병 환자의 비율은 8.6%로 전체 조사 대상자에 비해 매우 작은 수치이다. 따라서 차후에 있을 데이터 전처리 과정에서 언급하겠지만, 이 비율을 고려하여 데이터 편향 문제가 발생하지 않도록 test set과 train set을 나눌 것이다. 
 
+## 피쳐 분석
+모델 학습 시 심장병 발병에 주로 영향을 주는 피쳐만 사용하면 모델 예측 정확도가 증가할 수 있고 학습 시간 또한 감소할 수 있다. 따라서 전체 피쳐들중, 4가지 피쳐를 선택해 분석하여 어떤 피쳐가 심장병 발병에 유의미한 영향을 미치는지 분석할 것이고 이는 이후에 있을 피쳐 선택에 도움을 줄 것이다.  
+
+### GenHealth(건강에 대한 자신의 생각) 피쳐에 따른 심장병 발생 여부 분석 
+GenHealth 피쳐는 총 5개의 범주로 구성돼 있는데, 다음과 같다: Excellent, Very good, Good, Fair, Poor.
+```python
+E=df[df['GenHealth']=='Excellent']
+Vg=df[df['GenHealth']=='Very good']
+G=df[df['GenHealth']=='Good']
+F=df[df['GenHealth']=='Fair']
+P=df[df['GenHealth']=='Poor']
+
+f, ax = plt.subplots(1,5,figsize=(18,8))
+E['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
+                                             autopct='%1.1f%%', ax=ax[0],shadow=True)
+
+ax[0].set_title('Excellent', fontsize=10)
+ax[0].set_ylabel('')
+
+Vg['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
+                                             autopct='%1.1f%%', ax=ax[1],shadow=True)
+
+ax[1].set_title('Very good', fontsize=10)
+ax[1].set_ylabel('')
+
+G['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
+                                             autopct='%1.1f%%', ax=ax[2],shadow=True)
+
+ax[2].set_title('Good', fontsize=10)
+ax[2].set_ylabel('')
+F['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
+                                             autopct='%1.1f%%', ax=ax[3],shadow=True)
+
+ax[3].set_title('Fair', fontsize=10)
+ax[3].set_ylabel('')
+
+P['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
+                                             autopct='%1.1f%%', ax=ax[4],shadow=True)
+
+ax[4].set_title('Poor', fontsize=10)
+ax[4].set_ylabel('')
+```
+![image](https://user-images.githubusercontent.com/116618571/203222334-365b282f-5a77-48de-8506-7b694f727cbf.png)
+
 # **Ⅳ. Evaluation & Analysis**
   
   ```python
