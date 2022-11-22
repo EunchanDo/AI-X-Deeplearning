@@ -162,6 +162,44 @@ ax[4].set_title('Poor', fontsize=10)
 ax[4].set_ylabel('')
 ```
 ![image](https://user-images.githubusercontent.com/116618571/203222334-365b282f-5a77-48de-8506-7b694f727cbf.png)
+자신의 건강이 안좋다고 생각할 수록 심장병 발병률이 증가함을 알 수 있다. 
+
+### AgeCategory(연령 범주) 피쳐에 따른 심장병 발생 여부 분석 
+AgeCategory 피쳐는 18세부터 80세 이상까지의 연령대를 13개의 연령 구간으로 나눈 피쳐이다. 즉, 총 13개의 범주를 가진 피쳐이다.
+```python
+age = dict(df['AgeCategory'].value_counts())
+print(age)
+sorted_age = sorted(age.items())
+print(sorted_age)
+```
+```python
+groups_age = df.groupby(['HeartDisease','AgeCategory'])
+print(groups_age.size())
+
+Yes_age= dict(groups_age.size()[13:])
+print(Yes_age)
+sorted_Yes_age = sorted(Yes_age.items())
+print(sorted_Yes_age)
+```
+```python
+ratio_age=[]
+x_age=[]
+for i in range(13):
+  ratio_age.append(sorted_Yes_age[i][1]/sorted_age[i][1])
+  x_age.append(sorted_age[i][0])
+print(ratio_age)
+
+print(x_age)
+plt.figure(figsize=(18,8))
+plt.plot(x_age,ratio_age,'-x')
+plt.grid(True)
+plt.ylim([0,1])
+plt.xlabel('Age', fontsize=16)
+plt.ylabel('Ratio', fontsize=16)
+plt.title('Rate of heart disease by age', fontsize=20)
+```
+![image](https://user-images.githubusercontent.com/116618571/203223226-35fd0a6b-334d-4b01-aa5f-6c601fd4c4cf.png)
+
 
 # **Ⅳ. Evaluation & Analysis**
   
