@@ -408,7 +408,7 @@ memory usage: 43.9+ MB
   score = accuracy_score(y_test, y_pred)
   print(score*100)
   ```
-  다음과 같이 selected features만 사용하여 random forest로 예측할 경우, **91.08%** 의 예측 정확도를 나타내는 것을 알 수 있다.
+  다음과 같이 **selected features만 사용** 하여 **Random Forest** 로 예측할 경우, **91.08%** 의 예측 정확도를 나타내는 것을 알 수 있다.
   
   ```python
   # Confusion matrix for RandomForest model
@@ -427,13 +427,15 @@ memory usage: 43.9+ MB
   score = accuracy_score(y_test, y_pred)
   print(score*100)
   ```
-  다음과 같이 selected features만 사용하여 logistic regression으로 예측할 경우, **91.64%** 의 예측 정확도를 나타내는 것을 알 수 있다.
+  <br> 다음과 같이 **selected features만 사용** 하여 **Logistic Regression** 으로 예측할 경우, **91.64%** 의 예측 정확도를 나타내는 것을 알 수 있다.
   
+  ```python  
   # Confusion matrix for Logistic Regression model
   cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
   sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', linewidths=2).set_title('Logistic Regression w/ selected features', fontsize=15)
   plt.xlabel('Prediction', fontsize=13)
   plt.ylabel('Ground Truth', fontsize=13)
+  ```
   
   ## **- Train/Test split with all features**
   
@@ -453,7 +455,7 @@ memory usage: 43.9+ MB
   score = accuracy_score(y_test, y_pred)
   print(score*100)
   ```
-  <br> 다음과 같이 feature를 전부 사용하여 random forest로 예측할 경우, **90.66%** 의 예측 정확도를 나타내는 것을 알 수 있다.
+  <br> 다음과 같이 **feature를 전부 사용** 하여 **Random Forest** 로 예측할 경우, **90.66%** 의 예측 정확도를 나타내는 것을 알 수 있다.
   
   ```python
   # Confusion matrix for RandomForest model
@@ -463,8 +465,24 @@ memory usage: 43.9+ MB
   plt.ylabel('Ground Truth', fontsize=13)
   ```
   
-
-
+  ```python
+  # Logistic Regression with all features
+  lr_model = LogisticRegression(random_state=0)
+  lr_model.fit(x_train, y_train)
+  y_pred = lr_model.predict(x_test)
+  score = accuracy_score(y_test, y_pred)
+  print(score*100)
+  ```
+  
+  <br> 다음과 같이 **features를 전부 사용** 하여 **Logistic Regression** 으로 예측할 경우, **91.64%** 의 예측 정확도를 나타내는 것을 알 수 있다.
+  
+  ```python
+  # Confusion matrix for Logistic Regression model
+  cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
+  sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', linewidths=2).set_title('Logistic Regression w/ all features', fontsize=15)
+  plt.xlabel('Prediction', fontsize=13)
+  plt.ylabel('Ground Truth', fontsize=13)
+  ```
   
 # **Ⅴ. Related Work**
    <br>> http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002 (심장질환 예방)
