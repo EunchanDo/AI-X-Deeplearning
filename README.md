@@ -520,7 +520,7 @@ memory usage: 43.9+ MB
    <br>> https://www.korea.kr/news/healthView.do?newsId=148896724 (심장질환)
    <br>> https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋)
    <br>> https://computer-science-student.tistory.com/113 (Titanic 생존자 예측)
-   <br>> https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic (Exporling Survival on the Titanic)
+   <br>> https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic (Exploring Survival on the Titanic)
    <br>> https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks (Github Readme code block)
    <br>> https://partrita.github.io/posts/random-forest-python/ (python random forest analysis)
    <br>> https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a (Logistric Regression)
