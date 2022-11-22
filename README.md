@@ -237,19 +237,18 @@ plt.title('Rate of heart disease by race', fontsize=20)
 # **Ⅳ. Evaluation & Analysis**
   
   ```python
-  #Import libraries
   import pandas as pd
+  import numpy as np
   from sklearn import preprocessing
   import matplotlib.pyplot as plt
   import seaborn as sns
   from sklearn.ensemble import RandomForestClassifier
   from sklearn.metrics import accuracy_score
-  from sklearn.svm import SVC
+  from sklearn.model_selection import train_test_split
   import sklearn.metrics as mt
   from sklearn.linear_model import LogisticRegression
   from sklearn.metrics import confusion_matrix
   ```
-  
   ```python
   # Read csv data
   df = pd.read_csv('/content/drive/MyDrive/heart_2020_cleaned.csv')
@@ -480,7 +479,7 @@ memory usage: 43.9+ MB
   print(score*100)
   ```
   <br> 다음과 같이 **features를 전부 사용** 하여 **Logistic Regression** 으로 예측할 경우, **91.64%** 의 예측 정확도를 나타내는 것을 알 수 있다.
-  <br> 아래는 feature를 전부사용하여 로 예측할 경우의 confusion matrix이다.
+  <br> 아래는 feature를 전부사용하여 logistic regression로 예측할 경우의 confusion matrix이다.
   ```python
   # Confusion matrix for Logistic Regression model
   cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
