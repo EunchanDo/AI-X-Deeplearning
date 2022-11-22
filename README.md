@@ -169,19 +169,14 @@ AgeCategory 피쳐는 18세부터 80세 이상까지의 연령대를 13개의 �
 ```python
 #연령순으로 데이터 정렬
 age = dict(df['AgeCategory'].value_counts())
-print(age)
 sorted_age = sorted(age.items())
-print(sorted_age)
 ```
 ```python
 # AgeCategory피쳐와 심장병 여부 데이터 기준으로 grouping 진행
 groups_age = df.groupby(['HeartDisease','AgeCategory'])
-print(groups_age.size())
 
 Yes_age= dict(groups_age.size()[13:])
-print(Yes_age)
 sorted_Yes_age = sorted(Yes_age.items())
-print(sorted_Yes_age)
 ```
 ```python
 # 심장병 발생률을 연령대를 기준으로 plot
@@ -190,9 +185,7 @@ x_age=[]
 for i in range(13):
   ratio_age.append(sorted_Yes_age[i][1]/sorted_age[i][1])
   x_age.append(sorted_age[i][0])
-print(ratio_age)
 
-print(x_age)
 plt.figure(figsize=(18,8))
 plt.plot(x_age,ratio_age,'-x')
 plt.grid(True)
@@ -208,19 +201,21 @@ plt.title('Rate of heart disease by age', fontsize=20)
 ### Race(인종) 피쳐에 따른 심장병 발생 여부 분석 
 Race 피쳐는 6개의 범주로 구성돼 있다. 각각 American indian/Alaskan native, Asian, Black, Hispanic, white, Other이다.
 ```python
+# 인종과 심장병 피쳐로 grouping
 groups = df.groupby(['HeartDisease','Race'])
-groups.size()
 ```
 ```python
+# 인종을 알파벳 순으로 정렬
 race = dict(df['Race'].value_counts())
-print(race)
 sorted_race = sorted(race.items())
 ```
 ```python
+# 심장병 발생을 알파벳 순으로 정렬
 Yes = dict(groups.size()[6:])
 sorted_Yes = sorted(Yes.items())
 ```
 ```python
+# 인종별 심장병 발생률 plot
 ratio=[]
 x=[]
 for i in range(6):
