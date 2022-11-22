@@ -464,7 +464,7 @@ memory usage: 43.9+ MB
   ```
   ## **- Random Forest with all features**
   ```python
-  # RandomForest with selected features
+  # RandomForest with all features
   rf_model = RandomForestClassifier(n_estimators=500, random_state=0)
   rf_model.fit(x_train, y_train)
   y_pred = rf_model.predict(x_test)
