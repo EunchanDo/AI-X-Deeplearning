@@ -167,12 +167,14 @@ ax[4].set_ylabel('')
 ### AgeCategory(연령 범주) 피쳐에 따른 심장병 발생 여부 분석 
 AgeCategory 피쳐는 18세부터 80세 이상까지의 연령대를 13개의 연령 구간으로 나눈 피쳐이다. 즉, 총 13개의 범주를 가진 피쳐이다.
 ```python
+#연령순으로 데이터 정렬
 age = dict(df['AgeCategory'].value_counts())
 print(age)
 sorted_age = sorted(age.items())
 print(sorted_age)
 ```
 ```python
+# AgeCategory피쳐와 심장병 여부 데이터 기준으로 grouping 진행
 groups_age = df.groupby(['HeartDisease','AgeCategory'])
 print(groups_age.size())
 
@@ -182,6 +184,7 @@ sorted_Yes_age = sorted(Yes_age.items())
 print(sorted_Yes_age)
 ```
 ```python
+# 심장병 발생률을 연령대를 기준으로 plot
 ratio_age=[]
 x_age=[]
 for i in range(13):
