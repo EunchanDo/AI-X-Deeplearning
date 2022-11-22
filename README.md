@@ -57,17 +57,19 @@ df.head()
 # **Ⅳ. Evaluation & Analysis**
   
   ```python
-  # Import libraries
+  #Import libraries
   import pandas as pd
   from sklearn import preprocessing
   import matplotlib.pyplot as plt
   import seaborn as sns
   from sklearn.ensemble import RandomForestClassifier
   from sklearn.metrics import accuracy_score
-  import sklearn.svm as svm
+  from sklearn.svm import SVC
   import sklearn.metrics as mt
   from sklearn.linear_model import LogisticRegression
+  from sklearn.metrics import confusion_matrix
   ```
+  
   ```python
   # Read csv data
   df = pd.read_csv('/content/drive/MyDrive/heart_2020_cleaned.csv')
@@ -237,6 +239,14 @@ df.head()
   score = rf_model.score(test_x, test_y)
   print(score)
   ```
+  
+  ```python
+  # Confusion matrix for RandomForest model
+  cm = pd.DataFrame(confusion_matrix(test_y, y_pred), columns=test_y, index=test_y)
+  sns.heatmap(cm, annot=True)
+  ```
+  
+  
   
   Random forest model에 선별된 feature들을 넣고 예측했을 때, **91.06%** 의 정확도로 예측하는 것을 확인할 수 있다.
   
