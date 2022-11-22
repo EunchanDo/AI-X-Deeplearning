@@ -2,7 +2,7 @@
 
 # **Title**: 머신러닝 기법을 활용한 심장 질환 발병 예측
 
-# **Members**:
+### **Members**:
 <br>도은찬, 서울 기계공학부, dec1995@hanyang.ac.kr
 <br>정다연, 서울 기계공학부, jdd2635@hanyang.ac.kr
          
