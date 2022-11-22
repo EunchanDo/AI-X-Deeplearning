@@ -51,7 +51,7 @@
 
 ### **Logistic Regression**
 <br> 로지스틱 회귀(Logistic Regression)이란 독립 변수의 선형 결합을 이용하여 발생 가능성을 예측하는데 사용되는 통계 기법으로 선형 회귀(Linear Regression)에서 발전된 기법이다. 이번 프로젝트에서 사용하는 로지스틱 회귀 모델은 9개, 17개의 feature로 심장 질환 발병에 대해 예측하게 되므로 독립 변수 여러 개로 종속 변수를 예측하는 다항 로지스틱 회귀 모델이다. 로지스틱 함수의 형태는 아래와 같으며, 이는 독립 변수가 (-∞, ∞)의 어느 숫자이든 상관 없이 종속 변수 또는 결과 값이 항상 0과 1사이에 있도록 변환해주는 함수이다.
-<p align="center"><img_src=https://user-images.githubusercontent.com/116618556/203254630-a63723b5-80e5-4315-b648-7d06881b149b.png></p>
+<p align="center"><img_src="https://user-images.githubusercontent.com/116618556/203254630-a63723b5-80e5-4315-b648-7d06881b149b.png"></p>
 
 
 
