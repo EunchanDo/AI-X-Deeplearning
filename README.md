@@ -408,7 +408,7 @@ memory usage: 43.9+ MB
   score = accuracy_score(y_test, y_pred)
   print(score*100)
   ```
-  다음과 같이 selected features만 사용하여 random forest로 예측할 경우, 91.08%의 예측 정확도를 나타내는 것을 알 수 있다.
+  다음과 같이 selected features만 사용하여 random forest로 예측할 경우, **91.08%** 의 예측 정확도를 나타내는 것을 알 수 있다.
   
   ```python
   # Confusion matrix for RandomForest model
@@ -427,13 +427,42 @@ memory usage: 43.9+ MB
   score = accuracy_score(y_test, y_pred)
   print(score*100)
   ```
-  다음과 같이 selected features만 사용하여 logistic regression으로 예측할 경우, 91.64%의 예측 정확도를 나타내는 것을 알 수 있다.
+  다음과 같이 selected features만 사용하여 logistic regression으로 예측할 경우, **91.64%** 의 예측 정확도를 나타내는 것을 알 수 있다.
   
   # Confusion matrix for Logistic Regression model
   cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
   sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', linewidths=2).set_title('Logistic Regression w/ selected features', fontsize=15)
   plt.xlabel('Prediction', fontsize=13)
   plt.ylabel('Ground Truth', fontsize=13)
+  
+  ## **- Train/Test split with all features**
+  
+  ```python
+  # Train/Test split with all features
+  all_features = df_scaled[['BMI', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'Smoking', 'AlcoholDrinking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer', 'Diabetic', 'Sex', 'AgeCategory', 'Race', 'GenHealth']]
+  label = df_scaled['HeartDisease']
+  x_train, x_test, y_train, y_test = train_test_split(all_features, label, test_size=0.2)
+  print(x_train.shape, x_test.shape, y_train.shape, y_test.shape)
+  ```
+  
+  ```python
+  # RandomForest with selected features
+  rf_model = RandomForestClassifier(n_estimators=500, random_state=0)
+  rf_model.fit(x_train, y_train)
+  y_pred = rf_model.predict(x_test)
+  score = accuracy_score(y_test, y_pred)
+  print(score*100)
+  ```
+  <br> 다음과 같이 feature를 전부 사용하여 random forest로 예측할 경우, **90.66%** 의 예측 정확도를 나타내는 것을 알 수 있다.
+  
+  ```python
+  # Confusion matrix for RandomForest model
+  cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
+  sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', linewidths=2).set_title('Random Forest w/ all features', fontsize=15)
+  plt.xlabel('Prediction', fontsize=13)
+  plt.ylabel('Ground Truth', fontsize=13)
+  ```
+  
 
 
   
