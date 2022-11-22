@@ -411,7 +411,7 @@ memory usage: 43.9+ MB
   print(score*100)
   ```
   <br>다음과 같이 **selected features만 사용** 하여 **Random Forest** 로 예측할 경우, **91.08%** 의 예측 정확도를 나타내는 것을 알 수 있다.
-  <br> 아래는 selected feature만 사용하여 random forest로 예측할 경우의 confusion matrix이다.
+  
   ```python
   # Confusion matrix for RandomForest model
   cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
@@ -420,6 +420,8 @@ memory usage: 43.9+ MB
   plt.ylabel('Ground Truth', fontsize=13)
   ```
   ![image](https://user-images.githubusercontent.com/116618556/203228390-1bf606a6-37b6-41cf-b549-7a7273e78c6b.png)
+  
+  <br> selected feature만 사용하여 Random Forest로 예측할 경우의 confusion matrix.
   
   ## **- Logistic Regression with selected features**
   ```python
@@ -431,7 +433,7 @@ memory usage: 43.9+ MB
   print(score*100)
   ```
   <br> 다음과 같이 **selected features만 사용** 하여 **Logistic Regression** 으로 예측할 경우, **91.64%** 의 예측 정확도를 나타내는 것을 알 수 있다.
-  <br> 아래는 selected feature만 사용하여 logistic regression으로 예측할 경우의 confusion matrix이다.
+  
   ```python  
   # Confusion matrix for Logistic Regression model
   cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
@@ -440,6 +442,8 @@ memory usage: 43.9+ MB
   plt.ylabel('Ground Truth', fontsize=13)
   ```
   ![image](https://user-images.githubusercontent.com/116618556/203232074-4690016d-1368-42a5-9b7a-e3bc8b663a33.png)
+  
+  <br> selected feature만 사용하여 Logistic Regression으로 예측할 경우의 confusion matrix.  
   
   ## **- Train/Test split with all features**
   
@@ -460,7 +464,7 @@ memory usage: 43.9+ MB
   print(score*100)
   ```
   <br> 다음과 같이 **feature를 전부 사용** 하여 **Random Forest** 로 예측할 경우, **90.66%** 의 예측 정확도를 나타내는 것을 알 수 있다.
-  <br> 아래는 feature를 전부사용하여 random forest로 예측할 경우의 confusion matrix이다.
+  
   ```python
   # Confusion matrix for RandomForest model
   cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
@@ -469,6 +473,8 @@ memory usage: 43.9+ MB
   plt.ylabel('Ground Truth', fontsize=13)
   ```
   ![image](https://user-images.githubusercontent.com/116618556/203232181-7cb6fb04-4dae-43e8-82c4-868c0c695a66.png)
+  
+  <br> feature를 전부 사용하여 Random Forest로 예측할 경우의 confusion matrix.
 
   ## **- Logistic Regression with all features**
   ```python
@@ -480,7 +486,7 @@ memory usage: 43.9+ MB
   print(score*100)
   ```
   <br> 다음과 같이 **features를 전부 사용** 하여 **Logistic Regression** 으로 예측할 경우, **91.64%** 의 예측 정확도를 나타내는 것을 알 수 있다.
-  <br> 아래는 feature를 전부사용하여 logistic regression로 예측할 경우의 confusion matrix이다.
+  
   ```python
   # Confusion matrix for Logistic Regression model
   cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
@@ -489,7 +495,8 @@ memory usage: 43.9+ MB
   plt.ylabel('Ground Truth', fontsize=13)
   ```
   ![image](https://user-images.githubusercontent.com/116618556/203233166-df6cc2d0-8fb3-4f8e-bd4c-af62628ad425.png)
-
+  
+  <br> feature를 전부 사용하여 Logistic Regression으로 예측할 경우의 confusion matrix.
   
 # **Ⅴ. Related Work**
    <br>> http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002 (심장질환 예방)
