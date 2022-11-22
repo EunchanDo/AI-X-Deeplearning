@@ -48,7 +48,8 @@
   - Explaining your choice of algorithms
   <br> SVM, logistic regression, random forest ...
   - Explaining features
-  
+
+## 데이터 불러오기
 ```python
 import numpy as np
 import pandas as pd
