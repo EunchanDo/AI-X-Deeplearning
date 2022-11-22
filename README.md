@@ -436,6 +436,8 @@ memory usage: 43.9+ MB
   plt.xlabel('Prediction', fontsize=13)
   plt.ylabel('Ground Truth', fontsize=13)
   ```
+  ![image](https://user-images.githubusercontent.com/116618556/203232074-4690016d-1368-42a5-9b7a-e3bc8b663a33.png)
+
   
   ## **- Train/Test split with all features**
   
@@ -464,6 +466,8 @@ memory usage: 43.9+ MB
   plt.xlabel('Prediction', fontsize=13)
   plt.ylabel('Ground Truth', fontsize=13)
   ```
+  ![image](https://user-images.githubusercontent.com/116618556/203232181-7cb6fb04-4dae-43e8-82c4-868c0c695a66.png)
+
   
   ```python
   # Logistic Regression with all features
@@ -473,6 +477,8 @@ memory usage: 43.9+ MB
   score = accuracy_score(y_test, y_pred)
   print(score*100)
   ```
+  ![Uploading image.png…]()
+
   
   <br> 다음과 같이 **features를 전부 사용** 하여 **Logistic Regression** 으로 예측할 경우, **91.64%** 의 예측 정확도를 나타내는 것을 알 수 있다.
   
