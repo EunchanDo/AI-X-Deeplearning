@@ -100,6 +100,23 @@ memory usage: 43.9+ MB
 ```
 df.info() 함수를 활용하여 피쳐들의 결측치 여부를 확인한 결과 결측치는 존재하지 않음.
 
+## 심장병 발병률 확인하기
+```python
+f, ax = plt.subplots(1,2,figsize=(18,8))
+df['HeartDisease'].value_counts().plot.pie(explode=[0, 0.1],
+                                             autopct='%1.1f%%', ax=ax[0],shadow=True)
+
+ax[0].set_title('PiePlot - HeartDisease', fontsize=20)
+ax[0].set_ylabel('')
+
+sns.countplot('HeartDisease', data=df, ax=ax[1])
+ax[1].set_title('CountPlot - HeartDisease', fontsize=20)
+ax[1].set_xlabel('HeartDisease', fontsize=16)
+ax[1].set_ylabel('Count', fontsize=16)
+plt.show()
+```
+![image](https://user-images.githubusercontent.com/116618571/203219636-e60a2b1b-50b4-4adc-ad96-a67003169c81.png)
+
 
 # **Ⅳ. Evaluation & Analysis**
   
