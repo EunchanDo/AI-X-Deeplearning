@@ -21,7 +21,7 @@
   - Describing dataset
   <br> ![캡처](https://user-images.githubusercontent.com/116618556/199441411-adf3fa21-bd9d-46f7-aa4d-a78fad62c8e8.JPG)
   
-  <br> 본 데이터셋은 미국 질병통제예방센터(CDC)가 2020년에 분석한 성인 40만명의 건강 지표로 이루어져 있다. 총 18개의 변수(9개의 불리언, 5개의 문자열, 4개의 정수형)로 이루어져 있으며, 각 feature별 자세한 내용은 하기와 같다.
+  <br> 본 데이터셋은 미국 질병통제예방센터(CDC)가 2020년에 분석한 성인 약 40만명의 건강 지표로 이루어져 있다. 총 18개의 변수(9개의 불리언, 5개의 문자열, 4개의 정수형)로 이루어져 있으며, 각 feature별 자세한 내용은 하기와 같다.
   <br>
   <br> 1. HeartDisease: 심장질환 발병 여부, 불리언 자료형(Yes or No)
   <br> 2. BMI: Body Mass Index(BMI, 체질량지수), 정수형 자료형
@@ -45,9 +45,15 @@
   
 # **Ⅲ. Methodology**
 
-  - Explaining your choice of algorithms
-  <br> SVM, logistic regression, random forest ...
-  - Explaining features
+## **Explaining your choice of algorithms**
+
+### **Random Forest**
+<br> Random Forest란
+
+### **Logistic Regression**
+<br> Logistic Regression
+
+## **Explaining features**
 
 ## 데이터 불러오기
 ```python
@@ -512,8 +518,8 @@ memory usage: 43.9+ MB
    <br>>
    
 # **Ⅵ. Conclusion: Discussion**
-  <br> 이번 프로젝트에서는 머신러닝 모델을 활용한 심장 질환 예측에 selected feature만을 사용하는 경우와 모든 feature를 사용하는 경우의 정확도 비교를 진행하였다. 이때 심장질환 발병(HeartDisease)과 17개의 feature들 사이의 피어슨 상관 계수를 계산하여 절댓값이 0.1 이상인 9개의 feature(PhysicalHealth, Smoking, Stroke, DiffWalking, PhysicalActivity, KidneyDisease, Diabetic, AgeCategory, GenHealth)를 selected feature로 사용하였다. selected feature만을 사용하는 경우, random forest 모델의 정확도는 91.08%, logistic regression 모델의 정확도는 91.64%로 두 모델의 평균 정확도를 계산하면 91.36%이다. 모든 feature를 사용하는 경우, random forest 모델의 정확도는 90.66%, logistic regression 모델의 정확도는 91.53%로 두 모델의 평균 정확도는 91.10%이다. 각각의 평균 정확도를 비교하면 selected feature를 사용한 경우의 정확도가 모든 feature를 사용하는 경우에 비해 0.26% 소폭 높은 것을 확인할 수 있으며 이를 통해 모델 학습 시 선형 관계가 강한 feature들을 선별적으로 사용하는 경우가 모든 feature를 사용하는 경우에 비해 좋은 예측 결과를 나타낼 수 있다는 것을 확인할 수 있다.
-  <br> 또한 모델간의 정확를 비교하면 selected feature를 사용하는 경우, 모든 feature를 사용하는 경우 각각에 대해 logistic regression 모델의 정확도가 각각 0.56%, 0.87% 소폭 높은 것을 확인할 수 있다. 모델의 정확도는 어떤 데이터를 사용하느냐에 따라 달라질 수 있는데, 심장 질환 예측 모델의 경우 logistic regression 모델이 random forest 모델에 비해 소폭 좋은 정확도를 가지는 것을 확인할 수 있다.
+  <br> 이번 프로젝트에서는 머신러닝 기법을 활용한 심장 질환 예측에 대해 selected feature만을 사용하는 경우와 모든 feature를 사용하는 경우의 정확도 비교를 진행하였다. 이때 심장질환 발병(HeartDisease)과 17개의 feature들 사이의 피어슨 상관 계수를 계산하여 절댓값이 0.1 이상인 9개의 feature(PhysicalHealth, Smoking, Stroke, DiffWalking, PhysicalActivity, KidneyDisease, Diabetic, AgeCategory, GenHealth)를 selected feature로 사용하였다. selected feature만을 사용하는 경우, random forest 모델의 정확도는 91.08%, logistic regression 모델의 정확도는 91.64%로 두 모델의 평균 정확도를 계산하면 91.36%이다. 모든 feature를 사용하는 경우, random forest 모델의 정확도는 90.66%, logistic regression 모델의 정확도는 91.53%로 두 모델의 평균 정확도는 91.10%이다. 각각의 평균 정확도를 비교하면 selected feature를 사용한 경우의 정확도가 모든 feature를 사용하는 경우에 비해 0.26% 소폭 높은 것을 확인할 수 있으며 이를 통해 모델 학습 시 선형 관계가 강한 feature들을 선별적으로 사용하는 경우가 모든 feature를 사용하는 경우에 비해 좋은 예측 결과를 나타낼 수 있다는 것을 확인할 수 있다.
+  <br> 또한 모델 간의 정확도를 비교하면 selected feature를 사용하는 경우, 모든 feature를 사용하는 경우 각각에 대해 logistic regression 모델의 정확도가 각각 0.56%, 0.87% 소폭 높은 것을 확인할 수 있다. 모델의 정확도는 어떤 데이터를 사용하느냐에 따라 달라질 수 있는데, 심장 질환 데이터의 경우 logistic regression 모델이 random forest 모델에 비해 소폭 좋은 정확도를 가지는 것을 확인할 수 있다.
 
 <br> 도은찬: Dataset preprocessing, Model training, Code implementation, YouTube recording
 <br> 정다연: Feature Analysis, Graph analysis, Code implementation, YouTube recording
