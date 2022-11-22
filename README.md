@@ -117,6 +117,7 @@ plt.show()
 ```
 ![image](https://user-images.githubusercontent.com/116618571/203219636-e60a2b1b-50b4-4adc-ad96-a67003169c81.png)
 
+위 그림은 전체 데이터 셋에대한 심장병 발병률과 발병 환자 수를 pieplot과 countplot으로 나타낸 그림이다. 심장병 환자의 비율은 8.6%로 전체 조사 대상자에 비해 매우 작은 수치이다. 따라서 차후에 있을 데이터 전처리 과정에서 언급하겠지만, 이 비율을 고려하여 데이터 편향 문제가 발생하지 않도록 test set과 train set을 나눌 것이다. 
 
 # **Ⅳ. Evaluation & Analysis**
   
