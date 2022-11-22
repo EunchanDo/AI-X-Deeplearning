@@ -391,116 +391,34 @@ memory usage: 43.9+ MB
   ![image](https://user-images.githubusercontent.com/116618556/202103973-f6103b27-c795-4aa7-836a-2ed9bf3455e8.png)
 <br>Corrleation coefficient의 절댓값이 0.1 이상인 총 9개의 feature들(PhysicalHealth, Smoking, Stroke, DiffWalking, PhysicalActivity, KidneyDisease, Diabetic, AgeCategory, GenHealth)은 타 feature들에 비해 HeartDiease와 상대적으로 강한 선형관계를 가지므로 이 feature들만 사용하는 경우와 모든 feature를 다 사용하는 경우의 정확도에 대한 비교를 진행하고자 한다. 
   
-  ## **- Train/Test split**
+  ## **- Train/Test split with selected features**
   
   ```python
   # Train/Test split
-  df_yes = df_scaled[df['HeartDisease']=='Yes']
-  df_no = df_scaled[df['HeartDisease']=='No']
-  df_yes_train = df_yes.iloc[0:21898]
-  df_yes_test = df_yes.iloc[21898:]
-  df_no_train = df_no.iloc[0:233938]
-  df_no_test = df_no.iloc[233938:]
-  df_train = pd.concat([df_yes_train, df_no_train]).sample(frac=1).reset_index(drop=True)
-  df_test = pd.concat([df_yes_test, df_no_test]).sample(frac=1).reset_index(drop=True)
-  ```  
-총 319,795개의 HeartDisease(심장병 발병) 데이터 중 Yes(발병)에 해당하는 데이터는 27,373개로 약 8.56% 정도로 적은 비율을 가지므로 학습/시험 데이터를 랜덤하게 분리하게 될 경우 Yes(발병)에 해당하는 데이터가 학습 데이터셋에 너무 적게 들어갈 우려가 있다고 판단하였다. 따라서 이번 프로젝트에서는 Yes(발병) 및 No(발병 X)에 해당하는 데이터를 각각 8/2 비율로 분리하고 이 비율을 유지하며 다시 합치는 과정을 통해 훈련/시험 데이터셋을 구성하였다. 이를 통해 데이터 불균형으로 인한 문제를 방지하고자 한다.
-
-  ```python
-  # train dataset check
-  df_train.head(5)
-  ```  
-  |index|BMI|PhysicalHealth|MentalHealth|SleepTime|HeartDisease|Smoking|AlcoholDrinking|Stroke|DiffWalking|PhysicalActivity|Asthma|KidneyDisease|SkinCancer|Diabetic|Sex|AgeCategory|Race|GenHealth|
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|0|0\.15368827719425332|0\.06666666666666667|0\.0|0\.34782608695652173|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.5|1\.0|0\.75|
-|1|0\.27381383556682365|0\.0|0\.0|0\.30434782608695654|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.3333333333333333|1\.0|0\.5|
-|2|0\.15694796571290598|0\.0|0\.0|0\.21739130434782608|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.5|1\.0|0\.75|
-|3|0\.10817336713751058|0\.0|0\.0|0\.30434782608695654|0\.0|1\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.08333333333333333|1\.0|0\.25|
-|4|0\.27465893999758545|0\.0|0\.0|0\.30434782608695654|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.8|0\.5|
-  
-  ```python
-  # test dataset check
-  df_test.head(5)
+  selected_features = df_scaled[['PhysicalHealth', 'Smoking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'KidneyDisease', 'Diabetic', 'AgeCategory', 'GenHealth']]
+  label = df_scaled['HeartDisease']
+  x_train, x_test, y_train, y_test = train_test_split(selected_features, label, test_size=0.2)
+  print(x_train.shape, x_test.shape, y_train.shape, y_test.shape)
   ```
-  |index|BMI|PhysicalHealth|MentalHealth|SleepTime|HeartDisease|Smoking|AlcoholDrinking|Stroke|DiffWalking|PhysicalActivity|Asthma|KidneyDisease|SkinCancer|Diabetic|Sex|AgeCategory|Race|GenHealth|
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|0|0\.24508028492092238|0\.0|0\.0|0\.21739130434782608|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.6666666666666666|1\.0|0\.75|
-|1|0\.19703006157189423|0\.0|0\.1|0\.26086956521739135|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.5|0\.8|0\.75|
-|2|0\.2113968368948449|0\.0|0\.0|0\.3913043478260869|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.5|0\.6000000000000001|0\.5|
-|3|0\.1574308825304841|0\.0|0\.4|0\.30434782608695654|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.8333333333333333|1\.0|1\.0|
-|4|0\.15429192321622603|0\.0|0\.06666666666666667|0\.17391304347826086|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.75|1\.0|0\.5|
-
-이를 통해 255,836개의 train dataset과 63,959개의 test dataset을 구축한다.
-
-  ## **- Feature Selection(correlation coefficient가 0.1이상인 9개의 feature에 대해서)**
-  ```python
-  # Extract 9 features
-  train_x = df_train[['PhysicalHealth', 'Smoking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'KidneyDisease', 'Diabetic', 'AgeCategory', 'GenHealth']]
-  train_y = df_train[['HeartDisease']]
-  test_x = df_test[['PhysicalHealth', 'Smoking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'KidneyDisease', 'Diabetic', 'AgeCategory', 'GenHealth']]
-  test_y = df_test[['HeartDisease']]
-  print(train_x.shape, train_y.shape, test_x.shape, test_y.shape)
-  ```
-  
-  ## **- Model training with selected features**
   ```python
   # RandomForest with selected features
   rf_model = RandomForestClassifier(n_estimators=500, random_state=0)
-  rf_model.fit(train_x, train_y)
-  score = rf_model.score(test_x, test_y)
-  print(score)
+  rf_model.fit(x_train, y_train)
+  y_pred = rf_model.predict(x_test)
+  score = accuracy_score(y_test, y_pred)
+  print(score*100)
   ```
   
   ```python
   # Confusion matrix for RandomForest model
-  cm = pd.DataFrame(confusion_matrix(test_y, y_pred), columns=test_y, index=test_y)
-  sns.heatmap(cm, annot=True)
+  cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
+  sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', linewidths=2).set_title('Random Forest w/ selected features', fontsize=15)
+  plt.xlabel('Prediction', fontsize=13)
+  plt.ylabel('Ground Truth', fontsize=13)
   ```
-  
-  
-  
-  Random forest model에 선별된 feature들을 넣고 예측했을 때, **91.06%** 의 정확도로 예측하는 것을 확인할 수 있다.
-  
-  ```python
-  
-  
-  ```python
-  # Logistic Regression with selected features
-  lr_model = LogisticRegression(random_state=0)
-  lr_model.fit(train_x, train_y)
-  score = lr_model.score(test_x, test_y.values.ravel())
-  print(score*100)
-  ```
-  
-  선별된 feature로 Logistic regression을 수행했을 때, **91.56%** 의 정확도로 예측하는 것을 확인할 수 있다.
-  
-  ## **- Select all features to compare**
-  ```python
-  train_x = df_train[['BMI', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'Smoking', 'AlcoholDrinking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer', 'Diabetic', 'Sex', 'AgeCategory', 'Race', 'GenHealth']]
-  train_y = df_train[['HeartDisease']]
-  test_x = df_test[['BMI', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'Smoking', 'AlcoholDrinking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer', 'Diabetic', 'Sex', 'AgeCategory', 'Race', 'GenHealth']]
-  test_y = df_test[['HeartDisease']]
-  print(train_x.shape, train_y.shape, test_x.shape, test_y.shape)
-  ```
-  
-  ## **- Model training with all features**
-  ```python
-  # RandomForest with all features
-  rf_model = RandomForestClassifier(n_estimators=500, random_state=0)
-  rf_model.fit(train_x, train_y)
-  score = rf_model.score(test_x, test_y)
-  print(score*100)
-  ```
-  Random forest model에 모든 feature들을 넣고 예측했을 때, **90.67%** 의 정확도로 예측하는 것을 확인할 수 있다.
-  
-  ```python
-  # Logistic Regression with all features
-  lr_model = LogisticRegression(random_state=0)
-  lr_model.fit(train_x, train_y)
-  score = lr_model.score(test_x, test_y.values.ravel())
-  print(score*100)
-  ```
-  모든 feature로 Logistic regression을 수행했을 때, **91.60%** 의 정확도로 예측하는 것을 확인할 수 있다.
+  ![image](https://user-images.githubusercontent.com/116618556/203228390-1bf606a6-37b6-41cf-b549-7a7273e78c6b.png)
+
+
   
 # **Ⅴ. Related Work**
    <br>> http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002 (심장질환 예방)
