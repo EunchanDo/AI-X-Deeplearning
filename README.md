@@ -383,6 +383,6 @@ memory usage: 43.9+ MB
    <br>>
    
 # **Ⅵ. Conclusion: Discussion**
-Member 1: code implementation
-Member 2: dataset processing
-Member 3: write up, graph analysis YouTube recording
+<br> Member 1: code implementation
+<br> Member 2: dataset processing
+<br> Member 3: write up, graph analysis YouTube recording
