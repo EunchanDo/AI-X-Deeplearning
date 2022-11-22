@@ -485,7 +485,7 @@ memory usage: 43.9+ MB
   score = accuracy_score(y_test, y_pred)
   print(score*100)
   ```
-  <br> 다음과 같이 **features를 전부 사용** 하여 **Logistic Regression** 으로 예측할 경우, **91.64%** 의 예측 정확도를 나타내는 것을 알 수 있다.
+  <br> 다음과 같이 **features를 전부 사용** 하여 **Logistic Regression** 으로 예측할 경우, **91.53%** 의 예측 정확도를 나타내는 것을 알 수 있다.
   
   ```python
   # Confusion matrix for Logistic Regression model
@@ -508,10 +508,11 @@ memory usage: 43.9+ MB
    <br>> https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks (Github Readme code block)
    <br>> https://partrita.github.io/posts/random-forest-python/ (python random forest analysis)
    <br>> https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a (Logistric Regression)
-   <br>> https://www.kaggle.com/code/prashant111/svm-classifier-tutorial/notebook (Support Vector Machine)
+   <br>> 
    <br>>
    
 # **Ⅵ. Conclusion: Discussion**
-<br> Member 1: code implementation
-<br> Member 2: dataset processing
-<br> Member 3: write up, graph analysis YouTube recording
+<br> 도은찬: Dataset preprocessing, Model training, Code implementation, YouTube recording
+<br> 정다연: Feature Analysis, Graph analysis, Code implementation, YouTube recording
+
+
