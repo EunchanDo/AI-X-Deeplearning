@@ -477,7 +477,9 @@ memory usage: 43.9+ MB
   score = accuracy_score(y_test, y_pred)
   print(score*100)
   ```
-  ![Uploading image.png…]()
+  ![image](https://user-images.githubusercontent.com/116618556/203232690-63a7d5f0-4398-48f8-a1ae-0cee44a5ae41.png)
+
+  
 
   
   <br> 다음과 같이 **features를 전부 사용** 하여 **Logistic Regression** 으로 예측할 경우, **91.64%** 의 예측 정확도를 나타내는 것을 알 수 있다.
