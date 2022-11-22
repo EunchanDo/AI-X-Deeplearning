@@ -243,6 +243,7 @@ plt.title('Rate of heart disease by race', fontsize=20)
 ## 요약
 위의 데이터 분석과정을 통해 심장병 발생에 영향을 주는 피쳐는 GenHealth, AgeCategory이고 영향을 주지 않는 피쳐는 Race임을 알게됐다. 모델 학습 시 전자의 피쳐를 사용하고 후자의 피쳐를 생략하면 모델 예측 정확도가 더욱 증가할 수 있을 것이다. 그런데, 지금까지는 총 17개의 피쳐 중 3가지 피쳐만 분석하여 어떤 피쳐를 학습 데이터로 이용할지 판단했다. 하지만, 전체 피쳐에 대한 분석이 필요하므로, 차후에 Confusion matrix를 통해 상관계수를 계산하여 0.1 이상의 피쳐만을 사용하여 모델을 학습할 것이다. 위의 GenHealth와 AgeCategory 피쳐는 전부 상관계수의 크기가 0.1 이상의 피쳐들임을 알 수 있을것이다.  
 # **Ⅳ. Evaluation & Analysis**
+## **- Import Libraries**
   
   ```python
   #Import Libraries
@@ -258,6 +259,7 @@ plt.title('Rate of heart disease by race', fontsize=20)
   from sklearn.linear_model import LogisticRegression
   from sklearn.metrics import confusion_matrix
   ```
+  ## **- Data Load**
   ```python
   # Read csv data
   df = pd.read_csv('/content/drive/MyDrive/heart_2020_cleaned.csv')
@@ -304,6 +306,7 @@ memory usage: 43.9+ MB
 
 ## **- Feature Engineering**
 
+  ## **- Extract String feature**
   ```python
   # Extract String feature
   df_string = df[['BMI', 'PhysicalHealth', 'MentalHealth', 'SleepTime']]
@@ -316,7 +319,8 @@ memory usage: 43.9+ MB
 |2|26\.58|20\.0|30\.0|8\.0|
 |3|24\.21|0\.0|0\.0|6\.0|
 |4|23\.71|28\.0|0\.0|8\.0|
-
+  
+  ## **- Extract Boolean feature**
   ```python
   # Extract Boolean feature & Switch it to string factor
   df_diabetic = df[['Diabetic']].replace({'Yes (during pregnancy)' : 1, 'No, borderline diabetes' : 0})
@@ -333,7 +337,8 @@ memory usage: 43.9+ MB
 |2|0|1|0|0|0|1|1|0|0|1|
 |3|0|0|0|0|0|0|0|0|1|0|
 |4|0|0|0|0|1|1|0|0|0|0|
-
+  
+  ## **- Extract Categorical feature**
   ```python
   # Extract categorical feature & Switch it to string factor
   df_sex = df[['Sex']].replace({'Female':0, 'Male':1})
@@ -352,6 +357,7 @@ memory usage: 43.9+ MB
 |3|0|11|5|2|
 |4|0|4|5|3|
 
+  ## **- Concatenate into one data frame**
   ```python
   # Concatenate separated columns into one data frame
   df_modified = pd.concat([df_string, df_bool, df_category], axis=1)
@@ -371,6 +377,7 @@ memory usage: 43.9+ MB
 |8|26\.45|0\.0|0\.0|5\.0|0|0|0|0|0|0|0|1|0|0|0|12|5|1|
 |9|40\.69|0\.0|0\.0|10\.0|0|0|0|0|1|1|0|0|0|0|1|9|5|2|
 
+  ## **- Min-Max Normalization**
   ```python
   # Min-Max normalization
   min_max_scaler = preprocessing.MinMaxScaler()
@@ -390,7 +397,8 @@ memory usage: 43.9+ MB
 |7|0\.23687069902209346|0\.16666666666666666|0\.0|0\.34782608695652173|0\.0|1\.0|0\.0|0\.0|1\.0|0\.0|1\.0|0\.0|0\.0|1\.0|0\.0|1\.0|1\.0|0\.5|
 |8|0\.17421224194132562|0\.0|0\.0|0\.17391304347826086|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.25|
 |9|0\.34613062899915487|0\.0|0\.0|0\.3913043478260869|0\.0|0\.0|0\.0|0\.0|1\.0|1\.0|0\.0|0\.0|0\.0|0\.0|1\.0|0\.75|1\.0|0\.5|
-
+  
+  ## **- Correlation coefficient heatmap**
   ```python
   # Correlation heatmap
   plt.figure(figsize=(12, 12))
