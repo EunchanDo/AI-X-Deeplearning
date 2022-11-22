@@ -98,7 +98,7 @@ Data columns (total 18 columns):
 dtypes: float64(4), object(14)
 memory usage: 43.9+ MB
 ```
-
+df.info() method를 활용하여 피쳐들의 결측치 여부를 확인한 결과 결측치는 존재하지 않음.
 
 
 # **Ⅳ. Evaluation & Analysis**
