@@ -98,6 +98,37 @@ df.head()
 |3|No|24\.21|No|No|No|0\.0|0\.0|No|Female|75-79|White|No|No|Good|6\.0|No|No|Yes|
 |4|No|23\.71|No|No|No|28\.0|0\.0|Yes|Female|40-44|White|No|Yes|Very good|8\.0|No|No|No|
 
+```python
+df.info()
+```
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 319795 entries, 0 to 319794
+Data columns (total 18 columns):
+ #   Column            Non-Null Count   Dtype  
+---  ------            --------------   -----  
+ 0   HeartDisease      319795 non-null  object 
+ 1   BMI               319795 non-null  float64
+ 2   Smoking           319795 non-null  object 
+ 3   AlcoholDrinking   319795 non-null  object 
+ 4   Stroke            319795 non-null  object 
+ 5   PhysicalHealth    319795 non-null  float64
+ 6   MentalHealth      319795 non-null  float64
+ 7   DiffWalking       319795 non-null  object 
+ 8   Sex               319795 non-null  object 
+ 9   AgeCategory       319795 non-null  object 
+ 10  Race              319795 non-null  object 
+ 11  Diabetic          319795 non-null  object 
+ 12  PhysicalActivity  319795 non-null  object 
+ 13  GenHealth         319795 non-null  object 
+ 14  SleepTime         319795 non-null  float64
+ 15  Asthma            319795 non-null  object 
+ 16  KidneyDisease     319795 non-null  object 
+ 17  SkinCancer        319795 non-null  object 
+dtypes: float64(4), object(14)
+memory usage: 43.9+ MB
+```
+
 ## **- Feature Engineering**
 
   ```python
