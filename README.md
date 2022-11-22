@@ -203,6 +203,38 @@ plt.title('Rate of heart disease by age', fontsize=20)
 ```
 ![image](https://user-images.githubusercontent.com/116618571/203223226-35fd0a6b-334d-4b01-aa5f-6c601fd4c4cf.png)
 
+심장병 발생률이 연령대가 증가할 수록 확실히 커짐을 확인할 수 있다. 따라서 GenHealth 그리고 AgeCategory 피쳐는 모델 학습 시 포함시키면 정확도 향상에 영향을 줄 것이다.
+
+### Race(인종) 피쳐에 따른 심장병 발생 여부 분석 
+Race 피쳐는 6개의 범주로 구성돼 있다. 각각 American indian/Alaskan native, Asian, Black, Hispanic, white, Other이다.
+```python
+groups = df.groupby(['HeartDisease','Race'])
+groups.size()
+```
+```python
+race = dict(df['Race'].value_counts())
+print(race)
+sorted_race = sorted(race.items())
+```
+```python
+Yes = dict(groups.size()[6:])
+sorted_Yes = sorted(Yes.items())
+```
+```python
+ratio=[]
+x=[]
+for i in range(6):
+  ratio.append(sorted_Yes[i][1]/sorted_race[i][1])
+  x.append(sorted_race[i][0])
+plt.figure(figsize=(18,8))
+plt.plot(x,ratio,'-x')
+plt.grid(True)
+plt.ylim([0,1])
+plt.xlabel('Race', fontsize=16)
+plt.ylabel('Ratio', fontsize=16)
+plt.title('Rate of heart disease by race', fontsize=20)
+```
+![image](https://user-images.githubusercontent.com/116618571/203225511-bc4ae650-9ad4-4cfc-8201-7b47be1941a7.png)
 
 # **Ⅳ. Evaluation & Analysis**
   
