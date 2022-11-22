@@ -394,7 +394,7 @@ memory usage: 43.9+ MB
   ## **- Train/Test split with selected features**
   
   ```python
-  # Train/Test split
+  # Train/Test split with selected features
   selected_features = df_scaled[['PhysicalHealth', 'Smoking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'KidneyDisease', 'Diabetic', 'AgeCategory', 'GenHealth']]
   label = df_scaled['HeartDisease']
   x_train, x_test, y_train, y_test = train_test_split(selected_features, label, test_size=0.2)
@@ -408,6 +408,7 @@ memory usage: 43.9+ MB
   score = accuracy_score(y_test, y_pred)
   print(score*100)
   ```
+  다음과 같이 selected features만 사용하여 random forest로 예측할 경우, 91.08%의 예측 정확도를 나타내는 것을 알 수 있다.
   
   ```python
   # Confusion matrix for RandomForest model
@@ -417,6 +418,22 @@ memory usage: 43.9+ MB
   plt.ylabel('Ground Truth', fontsize=13)
   ```
   ![image](https://user-images.githubusercontent.com/116618556/203228390-1bf606a6-37b6-41cf-b549-7a7273e78c6b.png)
+  
+  ```python
+  # Logistic Regression with selected features
+  lr_model = LogisticRegression(random_state=0)
+  lr_model.fit(x_train, y_train)
+  y_pred = lr_model.predict(x_test)
+  score = accuracy_score(y_test, y_pred)
+  print(score*100)
+  ```
+  다음과 같이 selected features만 사용하여 logistic regression으로 예측할 경우, 91.64%의 예측 정확도를 나타내는 것을 알 수 있다.
+  
+  # Confusion matrix for Logistic Regression model
+  cm = pd.DataFrame(confusion_matrix(y_test, y_pred), columns=['HeartDisease=no', 'HeartDisease=yes'], index=['HeartDisease=no', 'HeartDisease=yes'])
+  sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', linewidths=2).set_title('Logistic Regression w/ selected features', fontsize=15)
+  plt.xlabel('Prediction', fontsize=13)
+  plt.ylabel('Ground Truth', fontsize=13)
 
 
   
