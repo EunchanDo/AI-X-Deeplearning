@@ -16,9 +16,9 @@
   
 # **Ⅱ. Datasets**
 
-  - https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋 출처)
+  ### **- https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋 출처)**
   
-  - Describing dataset
+  ### **- Describing dataset**
   <br> ![캡처](https://user-images.githubusercontent.com/116618556/199441411-adf3fa21-bd9d-46f7-aa4d-a78fad62c8e8.JPG)
   
   <br> 본 데이터셋은 미국 질병통제예방센터(CDC)가 2020년에 분석한 성인 약 40만명의 건강 지표로 이루어져 있다. 총 18개의 변수(9개의 불리언, 5개의 문자열, 4개의 정수형)로 이루어져 있으며, 각 feature별 자세한 내용은 하기와 같다.
@@ -41,7 +41,6 @@
   <br> 16. Asthma: 천식 발병 여부, 불리언 자료형(Yes or No)
   <br> 17. KidneyDisease: 신장 결석, 방광염, 요실금을 제외한 신장 질환 발병 여부, 불리언 자료형(Yes or No)
   <br> 18. SkinCancer: 피부암 발병 여부, 불리언 자료형(Yes or No)
-  <br>
   
 # **Ⅲ. Methodology**
 
