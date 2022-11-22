@@ -50,6 +50,13 @@
   - Explaining features
   
 ```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import missingno as msno
+```
+```python
 df = pd.read_csv('/content/drive/MyDrive/AIX_deeplearning data/heart_2020_cleaned.csv')
 df.head()
 ```
