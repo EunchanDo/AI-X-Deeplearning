@@ -219,7 +219,7 @@ df.head()
 
 이를 통해 255,836개의 train dataset과 63,959개의 test dataset을 구축한다.
 
-  ## **- Feature Selection**
+  ## **- Feature Selection(correlation coefficient가 0.1이상인 9개의 feature에 대해서)**
   ```python
   # Extract 9 features
   train_x = df_train[['PhysicalHealth', 'Smoking', 'Stroke', 'DiffWalking', 'PhysicalActivity', 'KidneyDisease', 'Diabetic', 'AgeCategory', 'GenHealth']]
