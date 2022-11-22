@@ -299,9 +299,9 @@ df.head()
    <br>> https://computer-science-student.tistory.com/113 (Titanic 생존자 예측)
    <br>> https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic (Exporling Survival on the Titanic)
    <br>> https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks (Github Readme code block)
-   <br>> https://www.kaggle.com/code/prashant111/svm-classifier-tutorial/notebook (Support Vector Machine)
    <br>> https://partrita.github.io/posts/random-forest-python/ (python random forest analysis)
-   <br>>
+   <br>> https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a (Logistric Regression)
+   <br>> https://www.kaggle.com/code/prashant111/svm-classifier-tutorial/notebook (Support Vector Machine)
    <br>>
    
 # **Ⅵ. Conclusion: Discussion**
