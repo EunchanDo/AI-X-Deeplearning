@@ -47,10 +47,10 @@
 ## **Explaining your choice of algorithms**
 
 ### **Random Forest**
-<br> Random Forest란
+<br> 랜덤 포레스트(Random Forest)란 배깅(Bagging)을 사용하는 앙상블 모델이다[]. 
 
 ### **Logistic Regression**
-<br> 로지스틱 회귀(Logistic Regression)이란 독립 변수의 선형 결합을 이용하여 발생 가능성을 예측하는데 사용되는 통계 기법으로 데이터가 어떤 범주에 속할 확률을 0에서 1 사이의 값으로 예측하고 그 확률에 따라 이진 분류를 수행하는 지도 학습 알고리즘이다. 선형 회귀(Linear Regression)에서 발전된 기법으로 선형 회귀 모델은 연속 종속 변수와 독립 변수 간의 관계를 설명하는데 사용되는 모델인데 비해 로지스틱 회귀 모델은 범주형 종속 변수에 대한 예측을 수행하는 모델이라는 차이점이 있다. 이번 프로젝트에서 사용하는 로지스틱 회귀 모델은 9개, 17개의 feature로 심장 질환 발병을 예측하므로 여러 개의 독립 변수로 범주형 종속 변수를 예측하는 다항 로지스틱 회귀 모델이다. 로지스틱 회귀에서는 시그모이드 함수를 사용하는데, 시그모이드 함수의 형태는 아래와 같으며, 이는 독립 변수가 (-∞, ∞)의 어느 숫자이든 상관 없이 종속 변수 또는 결과 값이 항상 0과 1사이에 있도록 변환해준다. 시그모이드 함수를 사용하면 x값이 작을 때의 예측값은 0에 수렴하며, x값이 클 때의 예측값은 1에 수렴한다. 따라서 예측 값을 0과 1 사이의 값으로 추출할 수 있으며, 임계값(threshold)(기본적으로 0.5로 설정)을 넘을 경우를 1로, 넘지 않을 경우를 0으로 분류하는 이진 분류 수행 지도 학습 알고리즘이다. 
+<br> 로지스틱 회귀(Logistic Regression)란 독립 변수의 선형 결합을 이용하여 발생 가능성을 예측하는데 사용되는 통계 기법으로 데이터가 어떤 범주에 속할 확률을 0에서 1 사이의 값으로 예측하고 그 확률에 따라 이진 분류를 수행하는 지도 학습 알고리즘이다. 선형 회귀(Linear Regression)에서 발전된 기법으로 선형 회귀 모델은 연속 종속 변수와 독립 변수 간의 관계를 설명하는데 사용되는 모델인데 비해 로지스틱 회귀 모델은 범주형 종속 변수에 대한 예측을 수행하는 모델이라는 차이점이 있다. 이번 프로젝트에서 사용하는 로지스틱 회귀 모델은 9개, 17개의 feature로 심장 질환 발병을 예측하므로 여러 개의 독립 변수로 범주형 종속 변수를 예측하는 다항 로지스틱 회귀 모델이다. 로지스틱 회귀에서는 시그모이드 함수를 사용하는데, 시그모이드 함수의 형태는 아래와 같으며, 이는 독립 변수가 (-∞, ∞)의 어느 숫자이든 상관 없이 종속 변수 또는 결과 값이 항상 0과 1사이에 있도록 변환해준다. 시그모이드 함수를 사용하면 x값이 작을 때의 예측값은 0에 수렴하며, x값이 클 때의 예측값은 1에 수렴한다. 따라서 예측 값을 0과 1 사이의 값으로 추출할 수 있으며, 임계값(threshold)(기본적으로 0.5로 설정)을 넘을 경우를 1로, 넘지 않을 경우를 0으로 분류하는 이진 분류 수행 지도 학습 알고리즘이다. 
 <br>
 ![image](https://user-images.githubusercontent.com/116618556/203255558-83cad801-0b1e-43bf-945f-b81e862cd437.png)
 <br> Logistic regression은 Anomaly detection, Disease prediction 등에 사용하는 모델로 심장 질환 발병을 예측하는 이번 프로젝트에 적합한 모델이라고 생각되어 채택하게 되었다.
@@ -515,18 +515,18 @@ memory usage: 43.9+ MB
   <br> feature를 전부 사용하여 Logistic Regression으로 예측할 경우의 confusion matrix.
   
 # **Ⅴ. Related Work**
-   <br>> http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002 (심장질환 예방)
-   <br>> https://www.nhis.or.kr/magazin/mobile/201411/sub02_02.html
-   <br>> https://www.korea.kr/news/healthView.do?newsId=148896724 (심장질환)
-   <br>> https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋)
-   <br>> https://computer-science-student.tistory.com/113 (Titanic 생존자 예측)
-   <br>> https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic (Exploring Survival on the Titanic)
-   <br>> https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks (Github Readme code block)
-   <br>> https://partrita.github.io/posts/random-forest-python/ (python random forest analysis)
-   <br>> https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a (Logistric Regression)
-   <br>> https://www.ibm.com/topics/logistic-regression#anchor--1020983554 (Logistic Regression)
-   <br>> https://ko.wikipedia.org/wiki/%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1_%ED%9A%8C%EA%B7%80 (Logistic Regression)
-   
+   <br>> [1]http://www.samsunghospital.com/dept/main/index.do?DP_CODE=XB301&MENU_ID=001002 (심장질환 예방)
+   <br>> [2]https://www.nhis.or.kr/magazin/mobile/201411/sub02_02.html
+   <br>> [3]https://www.korea.kr/news/healthView.do?newsId=148896724 (심장질환)
+   <br>> [4]https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease (데이터셋)
+   <br>> [5]https://computer-science-student.tistory.com/113 (Titanic 생존자 예측)
+   <br>> [6]https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic (Exploring Survival on the Titanic)
+   <br>> [7]https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks (Github Readme code block)
+   <br>> [8]https://partrita.github.io/posts/random-forest-python/ (python random forest analysis)
+   <br>> [9]https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a (Logistric Regression)
+   <br>> [10]https://www.ibm.com/topics/logistic-regression#anchor--1020983554 (Logistic Regression)
+   <br>> [11]https://ko.wikipedia.org/wiki/%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1_%ED%9A%8C%EA%B7%80 (Logistic Regression)
+   <br>> [12]https://zephyrus1111.tistory.com/249
 # **Ⅵ. Conclusion: Discussion**
   <br> 이번 프로젝트에서는 머신러닝 기법을 활용한 심장 질환 예측에 대해 selected feature만을 사용하는 경우와 모든 feature를 사용하는 경우의 정확도 비교를 진행하였다. 이때 심장질환 발병(HeartDisease)과 17개의 feature들 사이의 피어슨 상관 계수를 계산하여 절댓값이 0.1 이상인 9개의 feature(PhysicalHealth, Smoking, Stroke, DiffWalking, PhysicalActivity, KidneyDisease, Diabetic, AgeCategory, GenHealth)를 selected feature로 사용하였다. selected feature만을 사용하는 경우, random forest 모델의 정확도는 91.08%, logistic regression 모델의 정확도는 91.64%로 두 모델의 평균 정확도를 계산하면 91.36%이다. 모든 feature를 사용하는 경우, random forest 모델의 정확도는 90.66%, logistic regression 모델의 정확도는 91.53%로 두 모델의 평균 정확도는 91.10%이다. 각각의 평균 정확도를 비교하면 selected feature를 사용한 경우의 정확도가 모든 feature를 사용하는 경우에 비해 0.26% 소폭 높은 것을 확인할 수 있으며 이를 통해 모델 학습 시 선형 관계가 강한 feature들을 선별적으로 사용하는 경우가 모든 feature를 사용하는 경우에 비해 좋은 예측 결과를 나타낼 수 있다는 것을 확인할 수 있다.
   <br> 또한 모델 간의 정확도를 비교하면 selected feature를 사용하는 경우, 모든 feature를 사용하는 경우 각각에 대해 logistic regression 모델의 정확도가 각각 0.56%, 0.87% 소폭 높은 것을 확인할 수 있다. 모델의 정확도는 어떤 데이터를 사용하느냐에 따라 달라질 수 있는데, 심장 질환 데이터의 경우 logistic regression 모델이 random forest 모델에 비해 소폭 좋은 정확도를 가지는 것을 확인할 수 있다.
