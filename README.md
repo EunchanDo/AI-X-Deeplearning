@@ -4,7 +4,7 @@
 
 ### **Members**:
 도은찬, 서울 기계공학부, dec1995@hanyang.ac.kr
-정다연, 서울 기계공학부, jdd2635@hanyang.ac.kr
+<br>정다연, 서울 기계공학부, jdd2635@hanyang.ac.kr
          
 # **Ⅰ. Proposal(Option A)**
 
