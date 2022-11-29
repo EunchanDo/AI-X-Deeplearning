@@ -31,12 +31,12 @@
   <br> 6. PhysicalHealth: 한 달(30일) 중 신체적으로 아프거나 다친 날이 얼마인가요?, 정수형 자료형
   <br> 7. MentalHealth: 지난 한 달(30일) 중 정신적으로 안 좋은 날이 얼마인가요?, 정수형 자료형
   <br> 8. DiffWalking: 걷거나 계단을 오르내리는 데에 어려움이 있나요?, 불리언 자료형(Yes or No)
-  <br> 9. Sex: 성별, 문자형 자료형('Male', 'Female')
-  <br> 10. AgeCategory: 연령 범주를 14개로 카테고리화, 문자형 자료형('18-24', '25-29', '30-34', '35-39' 등)
-  <br> 11. Race: 인종, 문자형 자료형('White', 'Hispanic', 'Black' 등)
+  <br> 9. Sex: 성별, 범주형 자료형('Male', 'Female')
+  <br> 10. AgeCategory: 연령 범주를 14개로 카테고리화, 범주형 자료형('18-24', '25-29', '30-34', '35-39' 등)
+  <br> 11. Race: 인종, 범주형 자료형('White', 'Hispanic', 'Black' 등)
   <br> 12. Diabetic: 당뇨병 발병 여부, 불리언 자료형(Yes or No)
   <br> 13. PhysicalActivity: 지난 한 달(30일) 중 직업으로 인한 활동을 제외한 운동을 한 적이 있습니까?, 불리언 자료형(Yes or No)
-  <br> 14. GenHealth: 전반적으로 자신의 건강이 좋다고 생각하십니까?, 문자형 자료형('Excellent', 'Very Good', 'Good', 'Fair', 'Poor')
+  <br> 14. GenHealth: 전반적으로 자신의 건강이 좋다고 생각하십니까?, 범주형 자료형('Excellent', 'Very Good', 'Good', 'Fair', 'Poor')
   <br> 15. SleepTime: 평균적으로 하루에 얼마만큼의 수면 시간을 가지시나요?, 정수형 자료형
   <br> 16. Asthma: 천식 발병 여부, 불리언 자료형(Yes or No)
   <br> 17. KidneyDisease: 신장 결석, 방광염, 요실금을 제외한 신장 질환 발병 여부, 불리언 자료형(Yes or No)
