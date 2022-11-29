@@ -6,7 +6,7 @@
 도은찬, 서울 기계공학부, dec1995@hanyang.ac.kr
 <br>정다연, 서울 기계공학부, jdd2635@hanyang.ac.kr
 
-<br> ### **YouTube Link:**  
+### **YouTube Link:**  
          
 # **Ⅰ. Proposal(Option A)**
 
